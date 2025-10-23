@@ -1,12 +1,21 @@
 import React, { use, useContext } from "react";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 import logo1 from "../assets/logo1.png";
 import { AuthContext } from "../Provider/AuthProvider";
 // Example: import your AuthContext if you’re using Firebase auth
 // import { AuthContext } from "../context/AuthProvider";
 
 const Navbar = () => {
-  const { user, logOut } = use(AuthContext);
+  const { user,logOut } = use(AuthContext);
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        alert("You logged out successfully");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   // console.log(user)
   // For demo purpose, let’s mock a user:
   // const user = {
@@ -67,29 +76,30 @@ const Navbar = () => {
 
       {/* Right section */}
       <div className="navbar-end">
-        {user ? (
-          <div className="relative group">
-            <div className="tooltip tooltip-bottom flex gap-3" data-tip={user.displayName}>
-              <img
-                src={user.photoURL || "https://i.ibb.co/MBtjqXQ/no-avatar.gif"}
-                alt="User Avatar"
-                className="w-10 h-10 rounded-full border-2 border-primary cursor-pointer"
-              />
-
-            </div>
-
-            {/* Dropdown menu (optional, e.g. for logout) */}
-            {/* <div className="absolute right-0 hidden group-hover:block bg-base-100 shadow-lg rounded-md mt-2 p-3 w-40 text-sm">
-              <p className="font-semibold">{user.displayName}</p>
-             
-            </div> */}
+        <div className="relative group">
+          <div
+            className="tooltip tooltip-bottom flex gap-5"
+            data-tip={`${user ? user.displayName: ""}`}
+          >
+            <img
+              src={user?.photoURL || "https://i.ibb.co/MBtjqXQ/no-avatar.gif"}
+              alt="User Avatar"
+              className="w-10 h-10 rounded-full border-2 border-primary cursor-pointer"
+            />
           </div>
+        </div>
+        {user ? (
+          <button
+            onClick={handleLogOut}
+            className="btn btn-secondary px-10 ml-3"
+          >
+            LogOut
+          </button>
         ) : (
-          <a className="btn">Log In</a>
+          <Link to="/auth/login" className="btn btn-secondary px-10">
+            Login
+          </Link>
         )}
-        <button className="btn ml-3">
-                Log Out
-              </button>
       </div>
     </div>
   );

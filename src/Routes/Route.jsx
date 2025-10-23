@@ -8,6 +8,7 @@ import Register from "../Pages/Register";
 import Skills from "../Components/Skills";
 import PrivateRoute from "../PrivateRoute/Privateroute";
 import SkillDetails from "../Pages/SkillDetails";
+import Loading from "../Components/Loading";
 
 const router = createBrowserRouter([
   {
@@ -51,7 +52,7 @@ const router = createBrowserRouter([
       </PrivateRoute>
     ),
     loader: () => fetch("/skillsData.json").then((res) => res.json()),
-    hydrateFallbackElement: <p>Loading...</p>,
+    hydrateFallbackElement: <Loading></Loading>,
   },
 ]);
 export default router;

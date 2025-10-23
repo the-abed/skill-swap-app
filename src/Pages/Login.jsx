@@ -1,7 +1,27 @@
-import React from 'react';
-import { Link } from 'react-router';
+import React, { use, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router';
+import { AuthContext } from '../Provider/AuthProvider';
 
 const Login = () => {
+  const {signIn} = use(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const [error, setError] = useState('');
+  
+  const handleLogIn = (e)=>{
+    e.preventDefault();
+    const form = e.target
+    const email = form.email.value;
+    const password = form.password.value;
+    signIn(email,password)
+    .then((result)=> {
+      console.log(result.user);
+       navigate(`${location.state? location.state : "/"}`)
+    })
+    .catch(error =>{
+      setError(error.code)
+    })
+  }
     return (
         <div>
             <div className="flex justify-center items-center min-h-screen">
@@ -10,7 +30,7 @@ const Login = () => {
           Login your account
         </h2>
         <div className="card-body">
-          <form >
+          <form onSubmit={handleLogIn}>
             <fieldset className="fieldset text-bold">
             <label className="label">Email</label>
             <input
@@ -31,7 +51,7 @@ const Login = () => {
             <div>
               <a className="link link-hover">Forgot password?</a>
             </div>
-            {/* {error && <p className="text-red-600 text-md">{error}</p>} */}
+            {error && <p className="text-red-600 text-md">{error}</p>}
             <button type="submit" className="btn btn-neutral mt-4">Login</button>
             <p className="mt-5 text-center font-semibold">
               Dont’t Have An Account ?
