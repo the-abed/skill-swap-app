@@ -1,0 +1,35 @@
+[
+  {
+    "providerId": 1,
+    "name": "Alex Martin",
+    "photo": "https://i.pravatar.cc/150?img=32",
+    "skillsOffered": ["Guitar Lessons", "Music Theory"],
+    "rating": 4.9,
+    "email": "alex@skillswap.com"
+  },
+  {
+    "providerId": 2,
+    "name": "Sara Hossain",
+    "photo": "https://i.pravatar.cc/150?img=47",
+    "skillsOffered": ["Spoken English", "Writing Skills"],
+    "rating": 4.8,
+    "email": "sara@skillswap.com"
+  },
+  {
+    "providerId": 3,
+    "name": "Rafi Ahmed",
+    "photo": "https://i.pravatar.cc/150?img=12",
+    "skillsOffered": ["Web Development", "JavaScript"],
+    "rating": 4.9,
+    "email": "rafi@skillswap.com"
+  },
+  {
+    "providerId": 4,
+    "name": "Maya Patel",
+    "photo": "https://i.pravatar.cc/150?img=65",
+    "skillsOffered": ["Yoga", "Meditation"],
+    "rating": 4.7,
+    "email": "maya@skillswap.com"
+  }
+  
+]

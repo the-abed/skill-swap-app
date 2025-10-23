@@ -1,0 +1,74 @@
+[
+  {
+    "skillId": 1,
+    "skillName": "Beginner Guitar Lessons",
+    "providerName": "Alex Martin",
+    "providerEmail": "alex@skillswap.com",
+    "price": 20,
+    "rating": 4.8,
+    "slotsAvailable": 3,
+    "description": "Acoustic guitar classes for complete beginners. Learn basic chords, strumming patterns, and simple songs.",
+    "image": "https://images.pexels.com/photos/210922/pexels-photo-210922.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "category": "Music"
+  },
+  {
+    "skillId": 2,
+    "skillName": "Spoken English Practice",
+    "providerName": "Sara Hossain",
+    "providerEmail": "sara@skillswap.com",
+    "price": 10,
+    "rating": 4.6,
+    "slotsAvailable": 5,
+    "description": "Conversational English sessions for non-native speakers focusing on pronunciation and fluency.",
+    "image": "https://images.pexels.com/photos/261625/pexels-photo-261625.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "category": "Language"
+  },
+  {
+    "skillId": 3,
+    "skillName": "Basic Web Development Bootcamp",
+    "providerName": "Rafi Ahmed",
+    "providerEmail": "rafi@skillswap.com",
+    "price": 25,
+    "rating": 4.9,
+    "slotsAvailable": 4,
+    "description": "Learn to build responsive websites using HTML, CSS, and JavaScript in this beginner-friendly course.",
+    "image": "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "category": "Technology"
+  },
+  {
+    "skillId": 4,
+    "skillName": "Yoga for Beginners",
+    "providerName": "Maya Patel",
+    "providerEmail": "maya@skillswap.com",
+    "price": 15,
+    "rating": 4.7,
+    "slotsAvailable": 6,
+    "description": "Relaxing yoga sessions focusing on flexibility, breathing techniques, and stress relief.",
+    "image": "https://images.pexels.com/photos/317157/pexels-photo-317157.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "category": "Health & Fitness"
+  },
+  {
+    "skillId": 5,
+    "skillName": "Digital Photography Basics",
+    "providerName": "John Lee",
+    "providerEmail": "john@skillswap.com",
+    "price": 18,
+    "rating": 4.5,
+    "slotsAvailable": 2,
+    "description": "Learn how to use your DSLR camera effectively — covering composition, lighting, and editing.",
+    "image": "https://images.pexels.com/photos/212372/pexels-photo-212372.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "category": "Art & Design"
+  },
+  {
+    "skillId": 6,
+    "skillName": "Home Cooking: Traditional Dishes",
+    "providerName": "Nadia Rahman",
+    "providerEmail": "nadia@skillswap.com",
+    "price": 12,
+    "rating": 4.9,
+    "slotsAvailable": 5,
+    "description": "Cook delicious home-style meals using simple ingredients and traditional techniques.",
+    "image": "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "category": "Culinary"
+  }
+]
