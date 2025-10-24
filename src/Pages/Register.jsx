@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
+import toast, { Toaster } from "react-hot-toast";
 
 const Register = () => {
   const { createUser, setUser, updateUser, googleLogin } = useContext(AuthContext);
@@ -40,7 +41,7 @@ const Register = () => {
           .then(() => {
             setUser({ ...createdUser, displayName: name, photoURL: photo });
             navigate("/");
-            alert("Account created successfully");
+            toast.success("Signed Up successfully");
           })
           .catch((updateErr) => {
             console.error("Profile update error:", updateErr);
@@ -65,7 +66,8 @@ const Register = () => {
 
   return (
     <div className="flex justify-center items-center min-h-screen ">
-      <div className="bg-gradient-to-br from-gray-900 via-gray-800 to-black backdrop-blur-md rounded-2xl shadow-2xl w-full max-w-md p-8 border border-gray-800 ">
+      <Toaster position="top-center" reverseOrder={false} />
+      <div className="bg-gradient-to-br from-gray-900 via-gray-800 to-black backdrop-blur-md rounded-2xl shadow-2xl w-full max-w-md p-8 border border-gray-800 my-10">
         <h2 className="text-3xl font-extrabold text-center text-white mb-6">
           Create an Account 
         </h2>
