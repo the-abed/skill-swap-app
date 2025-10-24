@@ -86,7 +86,7 @@ npm install swiper
 ## Live Demo
 
 You can try the live demo of SkillSwap here:
-**[Live Demo Link](https://skill-swap-web.netlify.app/auth/login)**
+**[Live Demo Link](https://skill-swap-aa1db.web.app/)**
 
 ---
 

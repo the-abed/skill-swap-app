@@ -8,7 +8,7 @@ const Skills = () => {
   const data = use(skillPromise);
   // console.log('data',data);
   return (
-    <div id="popular-skills" className="max-w-7xl mx-auto mb-5">
+    <div id="popular-skills" className="max-w-7xl w-full mx-auto mb-5">
       <div className="text-center py-16 px-4  my-5">
         {/* Title */}
         <h2 className="text-3xl md:text-5xl font-extrabold text-blue-600 mb-4">
@@ -22,7 +22,7 @@ const Skills = () => {
           cooking, and more. Connect, learn, and grow together!
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-6 md:px-0 lg:px-0">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 px-6 md:px-0 lg:px-0">
         {data.map((skill) => (
           <SkillCard key={data.skillId} skill={skill}></SkillCard>
         ))}
