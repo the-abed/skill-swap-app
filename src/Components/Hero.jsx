@@ -4,6 +4,7 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { Link } from "react-router";
 
 const Hero = () => {
   const slides = [
@@ -56,7 +57,15 @@ const Hero = () => {
                   <p className="text-md sm:text-lg md:text-xl mb-6 opacity-90">
                     {slide.subtitle}
                   </p>
-                  <button className="btn btn-primary px-6">Get Started</button>
+                  <button
+                    className="btn btn-primary px-6"
+                    onClick={() => {
+                      const section = document.getElementById("popular-skills");
+                      section?.scrollIntoView({ behavior: "smooth" });
+                    }}
+                  >
+                    Get Started
+                  </button>
                 </div>
               </div>
             </SwiperSlide>

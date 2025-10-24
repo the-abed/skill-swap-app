@@ -10,7 +10,6 @@ import {
 } from "firebase/auth";
 import React, { createContext, useEffect, useState } from "react";
 import { auth } from "../firebase/firebase.config";
-import toast from "react-hot-toast";
 export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
@@ -56,6 +55,20 @@ const AuthProvider = ({ children }) => {
     });
     return () => unsubscribe();
   }, []);
+  const updateUserProfile = (name, photoURL) => {
+  return updateProfile(auth.currentUser, {
+    displayName: name || auth.currentUser.displayName,
+    photoURL: photoURL || auth.currentUser.photoURL,
+  }).then(() => {
+    // Update local user state so UI reflects the changes
+    setUser({
+      ...auth.currentUser,
+      displayName: name || auth.currentUser.displayName,
+      photoURL: photoURL || auth.currentUser.photoURL,
+    });
+  });
+};
+
   const resetPassword = (email) => sendPasswordResetEmail(auth, email); // 👈 forgot password function
 
 
@@ -71,6 +84,7 @@ const AuthProvider = ({ children }) => {
     loading,
     setLoading,
     updateUser,
+    updateUserProfile
   };
 
   // Use the Provider component so consumers receive the authData object

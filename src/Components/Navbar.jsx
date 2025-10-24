@@ -1,30 +1,21 @@
-import React, { use, useContext } from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router";
 import logo1 from "../assets/logo1.png";
 import { AuthContext } from "../Provider/AuthProvider";
 import toast, { Toaster } from "react-hot-toast";
-// Example: import your AuthContext if you’re using Firebase auth
-// import { AuthContext } from "../context/AuthProvider";
 
 const Navbar = () => {
-  const { user,logOut } = use(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
+
   const handleLogOut = () => {
     logOut()
       .then(() => {
-        toast.success('You logged out successfully');
+        toast.success("You logged out successfully");
       })
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch((error) => console.log(error));
   };
-  // console.log(user)
-  // For demo purpose, let’s mock a user:
-  // const user = {
-  //   displayName: "John Doe",
-  //   photoURL: "https://i.pravatar.cc/150?img=3",
-  // };
 
-  const link = (
+  const navLinks = (
     <>
       <li>
         <NavLink to="/">Home</NavLink>
@@ -36,10 +27,12 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar bg-base-100 shadow-sm">
+    <div className="navbar bg-base-100 shadow-sm sticky top-0 z-50">
       <Toaster position="top-center" reverseOrder={false} />
-      {/* Left section */}
+
+      {/* Left: Logo and Mobile Menu */}
       <div className="navbar-start">
+        {/* Mobile dropdown */}
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg
@@ -58,57 +51,70 @@ const Navbar = () => {
             </svg>
           </div>
           <ul
-            tabIndex="-1"
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[100] mt-3 w-52 p-2 shadow"
+            tabIndex={0}
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow font-semibold"
           >
-            {link}
+            {navLinks}
+            {/* Show login/logout options inside mobile dropdown too */}
+            {user ? (
+              <li>
+                <button onClick={handleLogOut}>Logout</button>
+              </li>
+            ) : (
+              <>
+                <li>
+                  <Link to="/auth/login">Login</Link>
+                </li>
+                <li>
+                  <Link to="/auth/register">Sign Up</Link>
+                </li>
+              </>
+            )}
           </ul>
         </div>
 
-        <a className="btn btn-ghost text-2xl font-bold">
-          <img className="w-[70px]" src={logo1} alt="SkillSwap Logo" />
-          SkillSwap
-        </a>
+        {/* Logo */}
+        <Link to="/" className="flex items-center gap-2 text-xl md:text-2xl font-bold">
+          <img className="w-12 md:w-14" src={logo1} alt="SkillSwap Logo" />
+          <span className=" sm:block">SkillSwap</span>
+        </Link>
       </div>
 
-      {/* Center section */}
+      {/* Center: Links for large screens */}
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 font-semibold">{link}</ul>
+        <ul className="menu menu-horizontal px-1 font-semibold">{navLinks}</ul>
       </div>
 
-      {/* Right section */}
-      <div className="navbar-end">
-        <div className="relative group">
-          <div
-            className="tooltip tooltip-bottom flex gap-5"
-            data-tip={`${user ? user.displayName: ""}`}
-          >
-            <img
-              src={user?.photoURL || "https://i.ibb.co/MBtjqXQ/no-avatar.gif"}
-              alt="User Avatar"
-              className="w-10 h-10 rounded-full border-2 border-primary cursor-pointer mr-3"
-            />
-          </div>
-        </div>
+      {/* Right: Auth Buttons */}
+      <div className="navbar-end space-x-2">
         {user ? (
-          <button
-            onClick={handleLogOut}
-            className="btn btn-secondary px-10 "
-          >
-            LogOut
-          </button>
-        ) : (
           <>
-         <div className="flex gap-3 ">
-           <Link to="/auth/register" className="btn btn-secondary px-10">
-            Sign Up
-          </Link>
-          <Link to="/auth/login" className="btn btn-secondary px-10">
-            Login
-          </Link>
-         </div>
+            <div
+              className="tooltip tooltip-bottom"
+              data-tip={user?.displayName || ""}
+            >
+              <img
+                src={user?.photoURL || "https://i.ibb.co/MBtjqXQ/no-avatar.gif"}
+                alt="User Avatar"
+                className="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-primary cursor-pointer"
+              />
+            </div>
+            <button
+              onClick={handleLogOut}
+              className="btn btn-secondary btn-sm md:btn-md text-white"
+            >
+              Log Out
+            </button>
           </>
-          
+        ) : (
+          <div className="hidden sm:flex gap-2">
+            <Link to="/auth/register" className="btn btn-secondary btn-sm md:btn-md text-white">
+              Sign Up
+            </Link>
+            <Link to="/auth/login" className="btn btn-outline btn-sm md:btn-md">
+              Login
+            </Link>
+          </div>
         )}
       </div>
     </div>

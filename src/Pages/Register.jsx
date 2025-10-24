@@ -1,9 +1,10 @@
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
+import { FaGoogle } from "react-icons/fa";
 
 const Register = () => {
-  const { createUser, setUser, updateUser } = useContext(AuthContext);
+  const { createUser, setUser, updateUser,googleLogin } = useContext(AuthContext);
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const handleRegister = (e) => {
@@ -16,19 +17,20 @@ const Register = () => {
     const email = form.email.value.trim();
     const password = form.password.value.trim();
 
-    // if (!name || !photo || !email || !password) {
-    //   setError("All fields are required.");
-    //   return;
-    // }
-    // if (password.length < 6) {
-    //   setError("Password must be at least 6 characters.");
-    //   return;
-    // }
-    // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    // if (!emailRegex.test(email)) {
-    //   setError("Please enter a valid email address.");
-    //   return;
-    // }
+    // Password validation
+if (password.length < 6) {
+  setError("Password must be at least 6 characters long.");
+  return;
+}
+if (!/[A-Z]/.test(password)) {
+  setError("Password must contain at least one uppercase letter.");
+  return;
+}
+if (!/[a-z]/.test(password)) {
+  setError("Password must contain at least one lowercase letter.");
+  return;
+}
+
 
     createUser(email, password)
       .then((result) => {
@@ -53,6 +55,15 @@ const Register = () => {
         console.error("Create user error:", err);
         setError(err.message || "Failed to create account.");
       });
+  };
+  const handleGoogleSignIn = () => {
+    googleLogin()
+      .then((result) => {
+        console.log("User:", result.user);
+        alert(`Welcome ${result.user.displayName}!`);
+        navigate("/");
+      })
+      .catch((err) => console.error(err.message));
   };
 
   return (
@@ -99,8 +110,15 @@ const Register = () => {
                 />
                 {error && <p>{error}</p>}
                 <button type="submit" className="btn btn-neutral mt-4">
-                  Register
+                  Sign Up
                 </button>
+                {/* Google */}
+                                <button
+                                  onClick={handleGoogleSignIn}
+                                  className="btn btn-outline flex items-center gap-2"
+                                >
+                                  <FaGoogle className="text-2xl" /> Continue with Google
+                                </button>
                 <h2 className="font-semibold text-xl text-center my-3">Or</h2>
   
 
