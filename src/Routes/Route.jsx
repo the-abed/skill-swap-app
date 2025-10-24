@@ -9,6 +9,7 @@ import Skills from "../Components/Skills";
 import PrivateRoute from "../PrivateRoute/Privateroute";
 import SkillDetails from "../Pages/SkillDetails";
 import Loading from "../Components/Loading";
+import Contact from "../Pages/Contact";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
         Component: Skills,
         loader: () => fetch("/skillsData.json"),
       },
+      {
+        path: "/contact",
+        Component: Contact
+      }
     ],
   },
   {

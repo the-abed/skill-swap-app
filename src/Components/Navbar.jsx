@@ -1,123 +1,168 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router";
-import logo1 from "../assets/logo1.png";
+import skillSwap2 from "../assets/SkillSwapLogo.png";
 import { AuthContext } from "../Provider/AuthProvider";
 import toast, { Toaster } from "react-hot-toast";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+  const [open, setOpen] = useState(false);
 
   const handleLogOut = () => {
     logOut()
-      .then(() => {
-        toast.success("You logged out successfully");
-      })
+      .then(() => toast.success("Logged out successfully"))
       .catch((error) => console.log(error));
   };
 
   const navLinks = (
     <>
       <li>
-        <NavLink to="/">Home</NavLink>
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            `px-3 py-2 rounded-md font-medium ${
+              isActive ? "text-blue-600" : "text-gray-700 hover:text-blue-500"
+            }`
+          }
+        >
+          Home
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/my-profile">My Profile</NavLink>
+        <NavLink
+          to="/my-profile"
+          className={({ isActive }) =>
+            `px-3 py-2 rounded-md font-medium ${
+              isActive ? "text-blue-600" : "text-gray-700 hover:text-blue-500"
+            }`
+          }
+        >
+          My Profile
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/skills"
+          className={({ isActive }) =>
+            `px-3 py-2 rounded-md font-medium ${
+              isActive ? "text-blue-600" : "text-gray-700 hover:text-blue-500"
+            }`
+          }
+        >
+          Skills
+        </NavLink>
       </li>
     </>
   );
 
   return (
-    <div className="navbar bg-base-100 shadow-sm sticky top-0 z-50">
+    <nav className="bg-white/90 backdrop-blur-md sticky top-0 z-50 shadow-sm">
       <Toaster position="top-center" reverseOrder={false} />
-
-      {/* Left: Logo and Mobile Menu */}
-      <div className="navbar-start">
-        {/* Mobile dropdown */}
-        <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h8m-8 6h16"
-              />
-            </svg>
-          </div>
-          <ul
-            tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow font-semibold"
-          >
-            {navLinks}
-            {/* Show login/logout options inside mobile dropdown too */}
-            {user ? (
-              <li>
-                <button onClick={handleLogOut}>Logout</button>
-              </li>
-            ) : (
-              <>
-                <li>
-                  <Link to="/auth/login">Login</Link>
-                </li>
-                <li>
-                  <Link to="/auth/register">Sign Up</Link>
-                </li>
-              </>
-            )}
-          </ul>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+        {/* Left: Logo */}
+        <div className="flex items-center gap-3">
+          <Link to="/" className="flex items-center gap-2">
+            <img src={skillSwap2} alt="SkillSwap Logo" className="w-12 h-12" />
+            <span className="text-2xl font-bold text-gray-800">SkillSwap</span>
+          </Link>
         </div>
 
-        {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 text-xl md:text-2xl font-bold">
-          <img className="w-12 md:w-14" src={logo1} alt="SkillSwap Logo" />
-          <span className=" sm:block">SkillSwap</span>
-        </Link>
-      </div>
+        {/* Center: Links (Desktop) */}
+        <ul className="hidden lg:flex space-x-4">{navLinks}</ul>
 
-      {/* Center: Links for large screens */}
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 font-semibold">{navLinks}</ul>
-      </div>
-
-      {/* Right: Auth Buttons */}
-      <div className="navbar-end space-x-2">
-        {user ? (
-          <>
-            <div
-              className="tooltip tooltip-bottom"
-              data-tip={user?.displayName || ""}
-            >
-              <img
-                src={user?.photoURL || "https://i.ibb.co/MBtjqXQ/no-avatar.gif"}
-                alt="User Avatar"
-                className="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-primary cursor-pointer"
-              />
+        {/* Right: Auth */}
+        <div className="flex items-center gap-3">
+          {user ? (
+            <>
+              <div className="tooltip tooltip-bottom" data-tip={user.displayName || ""}>
+                <img
+                  src={user.photoURL || "https://i.ibb.co/MBtjqXQ/no-avatar.gif"}
+                  alt="User Avatar"
+                  className="w-9 h-9 rounded-full border-2 border-blue-500 cursor-pointer"
+                />
+              </div>
+              <button
+                onClick={handleLogOut}
+                className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
+              >
+                Log Out
+              </button>
+            </>
+          ) : (
+            <div className="hidden sm:flex gap-2">
+              <Link
+                to="/auth/register"
+                className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
+              >
+                Sign Up
+              </Link>
+              <Link
+                to="/auth/login"
+                className="px-4 py-2 border border-blue-600 text-blue-600 rounded-md hover:bg-blue-50 transition"
+              >
+                Login
+              </Link>
             </div>
+          )}
+
+          {/* Mobile Menu */}
+          <div className="lg:hidden relative">
+            {/* Hamburger Button */}
             <button
-              onClick={handleLogOut}
-              className="btn btn-secondary btn-sm md:btn-md text-white"
+              onClick={() => setOpen(!open)}
+              className="p-2 rounded-md hover:bg-gray-100 transition"
             >
-              Log Out
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6 text-gray-800"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
             </button>
-          </>
-        ) : (
-          <div className="hidden sm:flex gap-2">
-            <Link to="/auth/register" className="btn btn-secondary btn-sm md:btn-md text-white">
-              Sign Up
-            </Link>
-            <Link to="/auth/login" className="btn btn-outline btn-sm md:btn-md">
-              Login
-            </Link>
+
+            {/* Dropdown Menu */}
+            {open && (
+              <ul className="absolute right-0 mt-2 p-3 shadow-lg bg-white rounded-md space-y-2 w-48 z-50">
+                {/* Use JSX directly instead of .map() */}
+                {navLinks}
+                {user ? (
+                  <li>
+                    <button
+                      onClick={handleLogOut}
+                      className="w-full text-left px-3 py-2 rounded-md hover:bg-gray-100"
+                    >
+                      Log Out
+                    </button>
+                  </li>
+                ) : (
+                  <>
+                    <li>
+                      <Link
+                        to="/auth/login"
+                        className="block px-3 py-2 rounded-md hover:bg-gray-100"
+                      >
+                        Login
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/auth/register"
+                        className="block px-3 py-2 rounded-md hover:bg-gray-100"
+                      >
+                        Sign Up
+                      </Link>
+                    </li>
+                  </>
+                )}
+              </ul>
+            )}
           </div>
-        )}
+        </div>
       </div>
-    </div>
+    </nav>
   );
 };
 

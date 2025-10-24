@@ -1,12 +1,14 @@
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
-import { FaGoogle } from "react-icons/fa";
+import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 
 const Register = () => {
-  const { createUser, setUser, updateUser,googleLogin } = useContext(AuthContext);
+  const { createUser, setUser, updateUser, googleLogin } = useContext(AuthContext);
   const [error, setError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
+
   const handleRegister = (e) => {
     e.preventDefault();
     setError("");
@@ -18,34 +20,29 @@ const Register = () => {
     const password = form.password.value.trim();
 
     // Password validation
-if (password.length < 6) {
-  setError("Password must be at least 6 characters long.");
-  return;
-}
-if (!/[A-Z]/.test(password)) {
-  setError("Password must contain at least one uppercase letter.");
-  return;
-}
-if (!/[a-z]/.test(password)) {
-  setError("Password must contain at least one lowercase letter.");
-  return;
-}
-
+    if (password.length < 6) {
+      setError("Password must be at least 6 characters long.");
+      return;
+    }
+    if (!/[A-Z]/.test(password)) {
+      setError("Password must contain at least one uppercase letter.");
+      return;
+    }
+    if (!/[a-z]/.test(password)) {
+      setError("Password must contain at least one lowercase letter.");
+      return;
+    }
 
     createUser(email, password)
       .then((result) => {
         const createdUser = result.user;
-        console.log(createUser);
-        // update profile, return the promise so we can handle errors
         return updateUser({ displayName: name, photoURL: photo })
           .then(() => {
-            // update local state with merged info
             setUser({ ...createdUser, displayName: name, photoURL: photo });
             navigate("/");
             alert("Account created successfully");
           })
           .catch((updateErr) => {
-            // profile update failed but account created; still set user and show error
             console.error("Profile update error:", updateErr);
             setUser(createdUser);
             setError("Account created but failed to update profile.");
@@ -56,10 +53,10 @@ if (!/[a-z]/.test(password)) {
         setError(err.message || "Failed to create account.");
       });
   };
+
   const handleGoogleSignIn = () => {
     googleLogin()
       .then((result) => {
-        console.log("User:", result.user);
         alert(`Welcome ${result.user.displayName}!`);
         navigate("/");
       })
@@ -67,74 +64,100 @@ if (!/[a-z]/.test(password)) {
   };
 
   return (
-    <div>
-      <div className="flex justify-center items-center min-h-screen">
-        <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl py-10">
-          <h2 className="font-semibold text-2xl text-center">
-            Register your account
-          </h2>
-          <div className="card-body">
-            {/* {error && <p className="text-red-500 text-center mb-3">{error}</p>} */}
-            <form onSubmit={handleRegister}>
-              <fieldset className="fieldset text-bold">
-                <label className="label">Name</label>
-                <input
-                  type="text"
-                  name="name"
-                  className="input bg-base-200 border-none"
-                  placeholder="Your Name"
-                />
+    <div className="flex justify-center items-center min-h-screen ">
+      <div className="bg-gradient-to-br from-gray-900 via-gray-800 to-black backdrop-blur-md rounded-2xl shadow-2xl w-full max-w-md p-8 border border-gray-800 ">
+        <h2 className="text-3xl font-extrabold text-center text-white mb-6">
+          Create an Account 
+        </h2>
 
-                <label className="label">Photo</label>
-                <input
-                  type="text"
-                  name="photo"
-                  className="input bg-base-200 border-none"
-                  placeholder="Photo URL"
-                />
-
-                <label className="label">Email</label>
-                <input
-                  type="email"
-                  name="email"
-                  className="input bg-base-200 border-none"
-                  placeholder="Your Email"
-                />
-
-                <label className="label">Password</label>
-                <input
-                  type="password"
-                  name="password"
-                  className="input bg-base-200 border-none"
-                  placeholder="Password"
-                />
-                {error && <p>{error}</p>}
-                <button type="submit" className="btn btn-neutral mt-4">
-                  Sign Up
-                </button>
-                {/* Google */}
-                                <button
-                                  onClick={handleGoogleSignIn}
-                                  className="btn btn-outline flex items-center gap-2"
-                                >
-                                  <FaGoogle className="text-2xl" /> Continue with Google
-                                </button>
-                <h2 className="font-semibold text-xl text-center my-3">Or</h2>
-  
-
-                <p className="mt-5 text-center font-semibold">
-                  Have an account?{" "}
-                  <Link
-                    to="/auth/login"
-                    className="text-secondary hover:underline"
-                  >
-                    Log In
-                  </Link>
-                </p>
-              </fieldset>
-            </form>
+        <form onSubmit={handleRegister} className="space-y-5 ">
+          {/* Name */}
+          <div>
+            <label className="block text-sm font-semibold text-white mb-1">Name</label>
+            <input
+              type="text"
+              name="name"
+              placeholder="Enter your name"
+              className="w-full input bg-white/20 text-white border-none placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-400"
+              required
+            />
           </div>
-        </div>
+
+          {/* Photo URL */}
+          <div>
+            <label className="block text-sm font-semibold text-white mb-1">Photo URL</label>
+            <input
+              type="text"
+              name="photo"
+              placeholder="Enter photo URL"
+              className="w-full input bg-white/20 text-white border-none placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-400"
+            />
+          </div>
+
+          {/* Email */}
+          <div>
+            <label className="block text-sm font-semibold text-white mb-1">Email</label>
+            <input
+              type="email"
+              name="email"
+              placeholder="Enter your email"
+              className="w-full input bg-white/20 text-white border-none placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-400"
+              required
+            />
+          </div>
+
+          {/* Password */}
+          <div>
+            <label className="block text-sm font-semibold text-white mb-1">Password</label>
+            <div className="relative">
+              <input
+                type={showPassword ? "text" : "password"}
+                name="password"
+                placeholder="Enter your password"
+                className="w-full input bg-white/20 text-white border-none placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-400"
+                required
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-3 top-3 text-white/80 hover:text-pink-300"
+              >
+                {showPassword ? <FaEyeSlash size={20} /> : <FaEye size={20} />}
+              </button>
+            </div>
+          </div>
+
+          {/* Error */}
+          {error && <p className="text-red-400 text-center">{error}</p>}
+
+          {/* Register Button */}
+          <button
+            type="submit"
+            className="btn w-full bg-pink-500 hover:bg-pink-600 text-white font-bold border-none"
+          >
+            Sign Up
+          </button>
+
+         
+
+          {/* Google Sign-In */}
+          <button
+            type="button"
+            onClick={handleGoogleSignIn}
+            className="btn w-full bg-white text-gray-800 font-semibold hover:bg-gray-100 flex items-center justify-center gap-2"
+          >
+            <FaGoogle className="text-xl text-pink-600" />
+            Continue with Google
+          </button>
+        </form>
+
+        {/* Login Link */}
+        <p className="mt-6 text-center text-gray-200 font-semibold">
+          Already have an account?{" "}
+          <Link to="/auth/login" className="text-pink-300 hover:underline">
+            Log In
+          </Link>
+        </p>
       </div>
     </div>
   );

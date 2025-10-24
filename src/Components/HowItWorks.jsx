@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  FaUserPlus,
-  FaChalkboardTeacher,
-  FaHandshake,
-  FaStar,
-} from "react-icons/fa";
+import { FaUserPlus, FaChalkboardTeacher, FaHandshake, FaStar } from "react-icons/fa";
 
 const HowItWorks = () => {
   const steps = [
@@ -39,40 +34,39 @@ const HowItWorks = () => {
   ];
 
   return (
-    <div className="py-20 px-6 bg-gradient-to-b from-gray-50 to-white">
+    <section className="mb-26 py-20 px-6 bg-gray-50 dark:bg-gray-900">
       {/* Section Header */}
       <div className="text-center mb-16">
-        <h2 className="text-4xl font-extrabold text-blue-600 mb-4">
+        <h2 className="text-3xl md:text-5xl font-extrabold text-blue-600 dark:text-blue-400 mb-4">
           How It Works
         </h2>
-        <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-          Discover how you can start learning and sharing skills with others in
-          just a few easy steps.
+        <p className="text-gray-600 dark:text-gray-300 text-lg max-w-2xl mx-auto">
+          Discover how you can start learning and sharing skills with others in just a few easy steps.
         </p>
       </div>
 
-      {/*  Cards */}
+      {/* Steps Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 max-w-7xl mx-auto">
         {steps.map((step, idx) => (
           <div
             key={idx}
-            className="group bg-white rounded-2xl shadow-md hover:shadow-2xl p-8 transition-all duration-300 transform hover:-translate-y-2 border border-gray-100"
+            className="group bg-white dark:bg-gray-800 rounded-2xl shadow-md hover:shadow-2xl p-8 transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 dark:border-gray-700"
           >
             <div
               className={`p-5 mb-5 rounded-full bg-gradient-to-r ${step.color} flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-300`}
             >
               {step.icon}
             </div>
-            <h3 className="text-xl font-semibold mb-3 text-gray-800">
+            <h3 className="text-xl font-semibold mb-3 text-gray-800 dark:text-gray-100">
               {step.title}
             </h3>
-            <p className="text-gray-600 text-sm leading-relaxed">
+            <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
               {step.description}
             </p>
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

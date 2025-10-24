@@ -3,14 +3,16 @@ import Hero from '../Components/Hero';
 import Skills from '../Components/Skills';
 import TopRatedProviders from '../Components/TopRatedProviders';
 import HowItWorks from '../Components/HowItWorks';
+import WhyChooseUs from '../Components/WhyChooseUs';
 
 const Home = () => {
     return (
-        <div className='w-11/12 mx-auto'>
+        <div className=''>
           <Hero></Hero>
           <Skills></Skills>
           <TopRatedProviders></TopRatedProviders>
           <HowItWorks></HowItWorks>
+          <WhyChooseUs></WhyChooseUs>
         </div>
     );
 };
