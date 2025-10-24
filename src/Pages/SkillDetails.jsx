@@ -85,7 +85,7 @@ const SkillDetails = () => {
               </div>
             </div>
           )}
-          ,{/* Booking Form (directly visible) */}
+          {/* Booking Form (directly visible) */}
           <div className="mt-12 bg-white shadow-md rounded-xl p-8 max-w-xl mx-auto">
             <h3 className="text-2xl font-bold text-center text-blue-600 mb-6">
               Book This Skill

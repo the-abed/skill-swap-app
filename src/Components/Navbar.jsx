@@ -2,6 +2,7 @@ import React, { use, useContext } from "react";
 import { Link, NavLink } from "react-router";
 import logo1 from "../assets/logo1.png";
 import { AuthContext } from "../Provider/AuthProvider";
+import toast, { Toaster } from "react-hot-toast";
 // Example: import your AuthContext if you’re using Firebase auth
 // import { AuthContext } from "../context/AuthProvider";
 
@@ -10,7 +11,7 @@ const Navbar = () => {
   const handleLogOut = () => {
     logOut()
       .then(() => {
-        alert("You logged out successfully");
+        toast.success('You logged out successfully');
       })
       .catch((error) => {
         console.log(error);
@@ -36,6 +37,7 @@ const Navbar = () => {
 
   return (
     <div className="navbar bg-base-100 shadow-sm">
+      <Toaster position="top-center" reverseOrder={false} />
       {/* Left section */}
       <div className="navbar-start">
         <div className="dropdown">
@@ -84,21 +86,29 @@ const Navbar = () => {
             <img
               src={user?.photoURL || "https://i.ibb.co/MBtjqXQ/no-avatar.gif"}
               alt="User Avatar"
-              className="w-10 h-10 rounded-full border-2 border-primary cursor-pointer"
+              className="w-10 h-10 rounded-full border-2 border-primary cursor-pointer mr-3"
             />
           </div>
         </div>
         {user ? (
           <button
             onClick={handleLogOut}
-            className="btn btn-secondary px-10 ml-3"
+            className="btn btn-secondary px-10 "
           >
             LogOut
           </button>
         ) : (
+          <>
+         <div className="flex gap-3 ">
+           <Link to="/auth/register" className="btn btn-secondary px-10">
+            Sign Up
+          </Link>
           <Link to="/auth/login" className="btn btn-secondary px-10">
             Login
           </Link>
+         </div>
+          </>
+          
         )}
       </div>
     </div>

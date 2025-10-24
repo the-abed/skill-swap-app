@@ -30,10 +30,10 @@ const HowItWorks = () => {
   ];
 
   return (
-    <div className="py-16 px-4">
+    <div className="py-16 px-4 max-w-7xl mx-auto">
       {/* Section Title */}
       <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
+        <h2 className="text-3xl md:text-4xl font-bold text-blue-600 mb-3">
           How It Works
         </h2>
         <p className="text-gray-600 text-lg max-w-2xl mx-auto mt-2">

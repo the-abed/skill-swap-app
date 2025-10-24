@@ -6,10 +6,10 @@ const providerDataPromise = fetch('/topRatedProvider.json').then(res => res.json
 const TopRatedProviders = () => {
     const providers = use(providerDataPromise);
   return (
-    <div className="py-16 px-4">
+    <div className="py-16 px-4 max-w-7xl mx-auto">
       {/* Section Title */}
       <div className="text-center mb-10 my-10">
-        <h2 className="text-xl md:text-4xl font-bold text-gray-800">
+        <h2 className="text-xl md:text-4xl font-bold text-blue-600 mb-3">
           Top Rated Providers
         </h2>
         <p className="text-primary text-lg max-w-2xl mx-auto mt-2">
