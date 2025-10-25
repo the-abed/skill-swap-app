@@ -10,6 +10,9 @@ import PrivateRoute from "../PrivateRoute/Privateroute";
 import SkillDetails from "../Pages/SkillDetails";
 import Loading from "../Components/Loading";
 import Contact from "../Pages/Contact";
+import PrivacyPolicy from "../Pages/PrivacyPolicy";
+import AboutUs from "../Pages/AboutUs";
+import PrivateLayout from "../Layouts/PrivateLayout";
 
 const router = createBrowserRouter([
   {
@@ -30,9 +33,17 @@ const router = createBrowserRouter([
         loader: () => fetch("/skillsData.json"),
       },
       {
+        path: "/about-us",
+        Component: AboutUs
+      },
+      {
         path: "/contact",
         Component: Contact
-      }
+      },
+      {
+  path: "/privacy-policy",
+  Component: PrivacyPolicy
+}
     ],
   },
   {
@@ -51,13 +62,19 @@ const router = createBrowserRouter([
   },
   {
     path: "/skill-details/:skillId",
-    element: (
+    element: <PrivateLayout></PrivateLayout>,
+    children: [
+      {
+        path: "",
+        element: (
       <PrivateRoute>
         <SkillDetails></SkillDetails>
       </PrivateRoute>
     ),
     loader: () => fetch("/skillsData.json").then((res) => res.json()),
     hydrateFallbackElement: <Loading></Loading>,
+      }
+    ]
   },
 ]);
 export default router;

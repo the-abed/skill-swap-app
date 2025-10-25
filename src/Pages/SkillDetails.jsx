@@ -1,23 +1,16 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router";
-import { FaStar } from "react-icons/fa";
-import toast, { Toaster } from "react-hot-toast";
-import Navbar from "../Components/Navbar";
-import Footer from "../Components/Footer";
+import { Star, DollarSign, Users, Tag } from "lucide-react";
 
 const SkillDetails = () => {
   const data = useLoaderData();
-  console.log("Loaded data:", data);
-  console.log("Data type:", typeof data);
   const { skillId } = useParams();
   const [skill, setSkill] = useState({});
   const [formData, setFormData] = useState({ email: "", password: "" });
 
   useEffect(() => {
     if (data && Array.isArray(data)) {
-      console.log("Searching for skillId:", skillId, "type:", typeof skillId);
       const filteredSkill = data.find((sk) => sk.skillId === Number(skillId));
-      console.log("Found skill:", filteredSkill);
       setSkill(filteredSkill || {});
     }
   }, [data, skillId]);
@@ -25,80 +18,135 @@ const SkillDetails = () => {
   const handleBookNow = (e) => {
     e.preventDefault();
     if (!formData.email || !formData.password) {
-      toast.error("Please fill in all fields!");
+      alert("Please fill in all fields!");
       return;
     }
-    toast.success(`Booking confirmed for ${skill.skillName}!`);
+    alert(`Booking confirmed for ${skill.skillName}!`);
     setFormData({ email: "", password: "" });
   };
 
   return (
-    <div>
-      <Navbar />
-
-      <main className="bg-gradient-to-br from-blue-50 via-white to-teal-50 min-h-screen">
-        <div className="max-w-7xl mx-auto px-6 py-12">
-          <Toaster position="top-center" reverseOrder={false} />
-          {/* Header */}
-          <div className="text-center mb-10">
-            <h2 className="text-5xl font-extrabold text-blue-600 mb-3">
-              Skill Details
-            </h2>
-            <p className="text-gray-600 text-lg">
-              Explore the details of your chosen skill and book your spot today!
-            </p>
+    <div className="min-h-screen bg-neutral-50 dark:bg-neutral-950 transition-colors duration-300">
+      
+      {/* Main Content */}
+      <div className="max-w-6xl mx-auto px-4 py-16 md:py-24">
+        
+        {/* Title */}
+        <div className="mb-8">
+          <div className="flex items-center gap-2 text-sm text-neutral-500 dark:text-neutral-400">
+            <span>Skills</span>
+            <span>/</span>
+            <span className="text-neutral-900 dark:text-neutral-100">{skill.skillName}</span>
           </div>
-          {/* Skill Details Card */}
-          {skill && (
-            <div className="bg-white shadow-lg rounded-2xl overflow-hidden md:flex">
-              {/* Image */}
+        </div>
+
+        {/* Skill Details Section */}
+        {skill && (
+          <div className="grid lg:grid-cols-2 gap-12 mb-16">
+            
+            {/* Image */}
+            <div className="relative group">
+              <div className="absolute inset-0 bg-gradient-to-br from-neutral-200 to-neutral-300 dark:from-neutral-800 dark:to-neutral-900 rounded-2xl"></div>
               <img
-                src={skill.image}
+                src={skill.image || "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800"}
                 alt={skill.skillName}
-                className="w-full md:w-1/2 object-cover h-96"
+                className="relative w-full h-[400px] md:h-[500px] object-cover rounded-2xl shadow-lg"
               />
+            </div>
 
-              {/* Details */}
-              <div className="p-8 flex flex-col justify-between">
-                <div>
-                  <h3 className="text-3xl font-bold text-gray-800 mb-3">
-                    {skill.skillName}
-                  </h3>
-                  <p className="text-gray-600 mb-5">{skill.description}</p>
+            {/* Details */}
+            <div className="flex flex-col justify-center space-y-8">
+              
+              {/* Sub title */}
+              <div className="space-y-3">
+                <h1 className="text-4xl md:text-5xl font-light text-neutral-900 dark:text-neutral-100 tracking-tight">
+                  {skill.skillName}
+                </h1>
+                <p className="text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                  {skill.description}
+                </p>
+              </div>
 
-                  <div className="flex items-center gap-4 mb-4">
-                    <span className="flex items-center bg-yellow-100 text-yellow-700 px-3 py-1 rounded-md font-semibold">
-                      <FaStar className="mr-1" /> {skill.rating}
-                    </span>
-                    <span className="bg-green-100 text-green-700 px-3 py-1 rounded-md font-semibold">
-                      ${skill.price}
-                    </span>
+              
+              <div className="grid grid-cols-2 gap-4">
+                
+                {/* Rating */}
+                <div className="bg-white dark:bg-neutral-900 rounded-xl p-4 border border-neutral-200 dark:border-neutral-800 transition-colors">
+                  <div className="flex items-center gap-2 text-neutral-500 dark:text-neutral-400 text-sm mb-1">
+                    <Star className="w-4 h-4" />
+                    <span>Rating</span>
                   </div>
+                  <div className="text-2xl font-light text-neutral-900 dark:text-neutral-100">
+                    {skill.rating || "N/A"}
+                  </div>
+                </div>
 
-                  <p className="text-sm text-gray-500">
-                    Slots Available: {skill.slotsAvailable}
-                  </p>
-                  <p className="text-sm text-gray-500 mt-1">
-                    Category: {skill.category}
-                  </p>
+                {/* Price */}
+                <div className="bg-white dark:bg-neutral-900 rounded-xl p-4 border border-neutral-200 dark:border-neutral-800 transition-colors">
+                  <div className="flex items-center gap-2 text-neutral-500 dark:text-neutral-400 text-sm mb-1">
+                    <DollarSign className="w-4 h-4" />
+                    <span>Price</span>
+                  </div>
+                  <div className="text-2xl font-light text-neutral-900 dark:text-neutral-100">
+                    ${skill.price || "0"}
+                  </div>
+                </div>
+
+                {/* Slots */}
+                <div className="bg-white dark:bg-neutral-900 rounded-xl p-4 border border-neutral-200 dark:border-neutral-800 transition-colors">
+                  <div className="flex items-center gap-2 text-neutral-500 dark:text-neutral-400 text-sm mb-1">
+                    <Users className="w-4 h-4" />
+                    <span>Slots</span>
+                  </div>
+                  <div className="text-2xl font-light text-neutral-900 dark:text-neutral-100">
+                    {skill.slotsAvailable || "0"}
+                  </div>
+                </div>
+
+                {/* Category */}
+                <div className="bg-white dark:bg-neutral-900 rounded-xl p-4 border border-neutral-200 dark:border-neutral-800 transition-colors">
+                  <div className="flex items-center gap-2 text-neutral-500 dark:text-neutral-400 text-sm mb-1">
+                    <Tag className="w-4 h-4" />
+                    <span>Category</span>
+                  </div>
+                  <div className="text-2xl font-light text-neutral-900 dark:text-neutral-100 truncate">
+                    {skill.category || "N/A"}
+                  </div>
                 </div>
               </div>
             </div>
-          )}
-          {/* Booking Form (directly visible) */}
-          <div className="mt-12 bg-white shadow-md rounded-xl p-8 max-w-xl mx-auto">
-            <h3 className="text-2xl font-bold text-center text-blue-600 mb-6">
+          </div>
+        )}
+
+        {/* Divider */}
+        <div className="h-px bg-neutral-200 dark:bg-neutral-800 mb-16"></div>
+
+        {/* Booking Form */}
+        <div className="max-w-xl mx-auto">
+          
+          {/* Form Header */}
+          <div className="mb-8 text-center">
+            <h2 className="text-3xl font-light text-neutral-900 dark:text-neutral-100 mb-2">
               Book This Skill
-            </h3>
-            <form onSubmit={handleBookNow}>
-              <div className="mb-4">
-                <label className="block font-medium mb-1 text-gray-700">
+            </h2>
+            <p className="text-neutral-600 dark:text-neutral-400">
+              Enter your details to secure your spot
+            </p>
+          </div>
+
+          {/* Form */}
+          <div className="bg-white dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-neutral-800 p-8 transition-colors">
+            <div className="space-y-6">
+              
+              {/* Email Field */}
+              <div className="space-y-2">
+                <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300">
                   Email Address
                 </label>
                 <input
                   type="email"
-                  placeholder="Enter your email"
-                  className="input input-bordered w-full"
+                  placeholder="your.email@example.com"
+                  className="w-full px-4 py-3 bg-neutral-50 dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 rounded-lg text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 dark:placeholder-neutral-600 focus:outline-none focus:ring-2 focus:ring-neutral-900 dark:focus:ring-neutral-400 focus:border-transparent transition-all"
                   value={formData.email}
                   onChange={(e) =>
                     setFormData({ ...formData, email: e.target.value })
@@ -106,14 +154,15 @@ const SkillDetails = () => {
                 />
               </div>
 
-              <div className="mb-6">
-                <label className="block font-medium mb-1 text-gray-700">
+              {/* Password Field */}
+              <div className="space-y-2">
+                <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300">
                   Password
                 </label>
                 <input
                   type="password"
                   placeholder="Enter your password"
-                  className="input input-bordered w-full"
+                  className="w-full px-4 py-3 bg-neutral-50 dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 rounded-lg text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 dark:placeholder-neutral-600 focus:outline-none focus:ring-2 focus:ring-neutral-900 dark:focus:ring-neutral-400 focus:border-transparent transition-all"
                   value={formData.password}
                   onChange={(e) =>
                     setFormData({ ...formData, password: e.target.value })
@@ -121,18 +170,24 @@ const SkillDetails = () => {
                 />
               </div>
 
+              {/* Submit Button */}
               <button
-                type="submit"
-                className="btn btn-primary w-full text-white font-semibold"
+                onClick={handleBookNow}
+                className="w-full px-6 py-4 bg-neutral-900 dark:bg-neutral-100 text-white dark:text-neutral-900 text-sm font-medium rounded-lg hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-all mt-8"
               >
-                Book Now
+                Confirm Booking
               </button>
-            </form>
+            </div>
+          </div>
+
+          {/* Additional Info */}
+          <div className="mt-6 text-center">
+            <p className="text-sm text-neutral-500 dark:text-neutral-500">
+              By booking, you agree to our terms and conditions
+            </p>
           </div>
         </div>
-      </main>
-
-      <Footer />
+      </div>
     </div>
   );
 };

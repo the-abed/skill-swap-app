@@ -74,10 +74,14 @@ npm install swiper
 ## Screenshots
 
 **Home Page**
-![Home Page Screenshot](./src/assets/SkillSwap_Home.png)
+![Home Page Screenshot](./src/assets/home.png)
+
+**Skills Page**
+![Skills Page Screenshot](./src/assets/allSkills.png)
+
 
 **Profile Page**
-![Profile Page Screenshot](./src/assets/SkillSwap_Profile.png)
+![Profile Page Screenshot](./src/assets/profile.png)
 
 **Register Page**
 ![Register Page Screenshot](./src/assets/SkillSwap_Register.png)

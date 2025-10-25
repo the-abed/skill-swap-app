@@ -4,15 +4,31 @@ import Skills from '../Components/Skills';
 import TopRatedProviders from '../Components/TopRatedProviders';
 import HowItWorks from '../Components/HowItWorks';
 import WhyChooseUs from '../Components/WhyChooseUs';
+import PopularSkills from '../Components/PopularSkills';
 
 const Home = () => {
     return (
         <div className=''>
-          <Hero></Hero>
-          <Skills></Skills>
-          <TopRatedProviders></TopRatedProviders>
-          <HowItWorks></HowItWorks>
-          <WhyChooseUs></WhyChooseUs>
+          <div data-aos="fade-up" data-aos-duration="1200">
+  <Hero />
+</div>
+
+<div >
+  <PopularSkills></PopularSkills>
+</div>
+
+<div>
+  <TopRatedProviders />
+</div>
+
+<div data-aos="fade-right" data-aos-duration="1000">
+  <HowItWorks />
+</div>
+
+<div data-aos="fade-up" data-aos-duration="1000">
+  <WhyChooseUs />
+</div>
+
         </div>
     );
 };

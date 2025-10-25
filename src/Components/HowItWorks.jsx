@@ -34,13 +34,13 @@ const HowItWorks = () => {
   ];
 
   return (
-    <section className="mb-26 py-20 px-6 bg-gray-50 dark:bg-gray-900">
+    <section className="mb-26 py-20 px-6 0 bg-gray-900">
       {/* Section Header */}
       <div className="text-center mb-16">
         <h2 className="text-3xl md:text-5xl font-extrabold text-blue-600 dark:text-blue-400 mb-4">
           How It Works
         </h2>
-        <p className="text-gray-600 dark:text-gray-300 text-lg max-w-2xl mx-auto">
+        <p className="text-gray-300 text-lg max-w-2xl mx-auto">
           Discover how you can start learning and sharing skills with others in just a few easy steps.
         </p>
       </div>
@@ -50,17 +50,17 @@ const HowItWorks = () => {
         {steps.map((step, idx) => (
           <div
             key={idx}
-            className="group bg-white dark:bg-gray-800 rounded-2xl shadow-md hover:shadow-2xl p-8 transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 dark:border-gray-700"
+            className="group bg-gray-800 rounded-2xl shadow-md hover:shadow-2xl p-8 transition-all duration-300 transform hover:-translate-y-2 border border-gray-700"
           >
             <div
               className={`p-5 mb-5 rounded-full bg-gradient-to-r ${step.color} flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-300`}
             >
               {step.icon}
             </div>
-            <h3 className="text-xl font-semibold mb-3 text-gray-800 dark:text-gray-100">
+            <h3 className="text-xl font-semibold mb-3 text-gray-100">
               {step.title}
             </h3>
-            <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+            <p className="text-gray-300 text-sm leading-relaxed">
               {step.description}
             </p>
           </div>

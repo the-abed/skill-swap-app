@@ -29,7 +29,7 @@ const Hero = () => {
   ];
 
   return (
-    <div className="my-10">
+    <div className="py-24">
       <div className="w-full max-w-7xl mx-auto rounded-2xl overflow-hidden shadow-lg">
         <Swiper
           modules={[Navigation, Pagination, Autoplay]}

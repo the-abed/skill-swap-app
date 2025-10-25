@@ -1,16 +1,17 @@
 [
   {
     "skillId": 1,
-    "skillName": "Beginner Guitar Lessons",
+    "skillName": "Beginner Quran Learning",
     "providerName": "Alex Martin",
     "providerEmail": "alex@skillswap.com",
-    "price": 20,
-    "rating": 4.8,
-    "slotsAvailable": 3,
-    "description": "Acoustic guitar classes for complete beginners. Learn basic chords, strumming patterns, and simple songs.",
-    "image": "https://images.pexels.com/photos/210922/pexels-photo-210922.jpeg?auto=compress&cs=tinysrgb&w=800",
-    "category": "Music"
+    "price": 25,
+    "rating": 4.9,
+    "slotsAvailable": 5,
+    "description": "Learn to read and understand the Quran for beginners. Focus on correct pronunciation (Tajweed) and basic comprehension.",
+    "image": "https://images.pexels.com/photos/3184293/pexels-photo-3184293.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "category": "Islamic Studies"
   },
+
   {
     "skillId": 2,
     "skillName": "Spoken English Practice",
@@ -37,16 +38,17 @@
   },
   {
     "skillId": 4,
-    "skillName": "Yoga for Beginners",
+    "skillName": "Beginner Karate Classes",
     "providerName": "Maya Patel",
     "providerEmail": "maya@skillswap.com",
-    "price": 15,
-    "rating": 4.7,
+    "price": 18,
+    "rating": 4.8,
     "slotsAvailable": 6,
-    "description": "Relaxing yoga sessions focusing on flexibility, breathing techniques, and stress relief.",
-    "image": "https://images.pexels.com/photos/317157/pexels-photo-317157.jpeg?auto=compress&cs=tinysrgb&w=800",
-    "category": "Health & Fitness"
+    "description": "Learn the basics of Karate including stances, strikes, and self-defense techniques in a structured beginner-friendly course.",
+    "image": "https://i.ibb.co.com/s9vnbkH7/image.png",
+    "category": "Sports & Martial Arts"
   },
+
   {
     "skillId": 5,
     "skillName": "Digital Photography Basics",
@@ -70,5 +72,126 @@
     "description": "Cook delicious home-style meals using simple ingredients and traditional techniques.",
     "image": "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800",
     "category": "Culinary"
+  },
+  {
+    "skillId": 7,
+    "skillName": "Intermediate Piano Lessons",
+    "providerName": "Liam Thompson",
+    "providerEmail": "liam@skillswap.com",
+    "price": 30,
+    "rating": 4.8,
+    "slotsAvailable": 3,
+    "description": "Enhance your piano skills with intermediate techniques, music theory, and song performance.",
+    "image": "https://images.pexels.com/photos/164829/pexels-photo-164829.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "category": "Music"
+  },
+  {
+    "skillId": 8,
+    "skillName": "French Language Beginner",
+    "providerName": "Camille Dubois",
+    "providerEmail": "camille@skillswap.com",
+    "price": 15,
+    "rating": 4.7,
+    "slotsAvailable": 4,
+    "description": "Learn French basics including greetings, simple conversation, and pronunciation skills.",
+    "image": "https://i.ibb.co.com/WvzrVP86/image.png",
+    "category": "Language"
+  },
+  {
+    "skillId": 9,
+    "skillName": "JavaScript Advanced Concepts",
+    "providerName": "Ethan Clark",
+    "providerEmail": "ethan@skillswap.com",
+    "price": 35,
+    "rating": 4.9,
+    "slotsAvailable": 2,
+    "description": "Master advanced JavaScript topics like closures, async/await, and object-oriented programming.",
+    "image": "https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "category": "Technology"
+  },
+  {
+    "skillId": 10,
+    "skillName": "Pilates for Beginners",
+    "providerName": "Olivia Brown",
+    "providerEmail": "olivia@skillswap.com",
+    "price": 18,
+    "rating": 4.6,
+    "slotsAvailable": 5,
+    "description": "Strengthen your core and improve flexibility with beginner-friendly Pilates exercises.",
+    "image": "https://images.pexels.com/photos/3823039/pexels-photo-3823039.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "category": "Health & Fitness"
+  },
+  {
+    "skillId": 11,
+    "skillName": "Watercolor Painting Workshop",
+    "providerName": "Sophia Rivera",
+    "providerEmail": "sophia@skillswap.com",
+    "price": 22,
+    "rating": 4.8,
+    "slotsAvailable": 3,
+    "description": "Learn watercolor techniques, blending, and composition to create beautiful artwork.",
+    "image": "https://images.pexels.com/photos/207983/pexels-photo-207983.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "category": "Art & Design"
+  },
+  {
+    "skillId": 12,
+    "skillName": "Baking Bread & Pastries",
+    "providerName": "Lucas Miller",
+    "providerEmail": "lucas@skillswap.com",
+    "price": 20,
+    "rating": 4.9,
+    "slotsAvailable": 4,
+    "description": "Learn to bake bread, pastries, and desserts from scratch with professional tips.",
+    "image": "https://i.ibb.co.com/0V9b0BR4/image.png",
+    "category": "Culinary"
+  },
+  {
+    "skillId": 13,
+    "skillName": "Intermediate Basketball Training",
+    "providerName": "Isabella Garcia",
+    "providerEmail": "isabella@skillswap.com",
+    "price": 25,
+    "rating": 4.7,
+    "slotsAvailable": 4,
+    "description": "Enhance your basketball skills with dribbling, shooting, and teamwork drills designed for intermediate players.",
+    "image": "https://images.pexels.com/photos/415805/pexels-photo-415805.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "category": "Sports"
+  },
+
+  {
+    "skillId": 14,
+    "skillName": "Sketching & Drawing Fundamentals",
+    "providerName": "Mia Johnson",
+    "providerEmail": "mia@skillswap.com",
+    "price": 18,
+    "rating": 4.8,
+    "slotsAvailable": 3,
+    "description": "Learn basic sketching and drawing techniques, including shading, perspective, and composition.",
+    "image": "https://i.ibb.co.com/vCpvSbxp/design-sketch-bottle-orig.jpg",
+    "category": "Art & Design"
+  },
+  {
+    "skillId": 15,
+    "skillName": "Beginner Coding with Python",
+    "providerName": "Noah Williams",
+    "providerEmail": "noah@skillswap.com",
+    "price": 25,
+    "rating": 4.9,
+    "slotsAvailable": 5,
+    "description": "Learn Python programming basics, including variables, loops, functions, and simple projects.",
+    "image": "https://images.pexels.com/photos/1181676/pexels-photo-1181676.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "category": "Technology"
+  },
+  {
+    "skillId": 16,
+    "skillName": "Meditation for Stress Relief",
+    "providerName": "Emma Thompson",
+    "providerEmail": "emma@skillswap.com",
+    "price": 12,
+    "rating": 4.6,
+    "slotsAvailable": 6,
+    "description": "Guided meditation sessions to reduce stress, improve focus, and promote mental wellness.",
+    "image": "https://images.pexels.com/photos/3822622/pexels-photo-3822622.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "category": "Health & Fitness"
   }
 ]

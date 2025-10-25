@@ -6,7 +6,7 @@ const SkillCard = ({ skill }) => {
   const { skillId, image, skillName, description, rating, price, level, category } = skill;
 
   return (
-    <div className="flex flex-col bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-200 dark:border-gray-700 ">
+    <div className="flex flex-col bg-gray-900 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100 dark:border-gray-700 " data-aos="fade-up" data-aos-duration="1000">
       
       {/* Image Section */}
       <div className="relative h-52 w-full overflow-hidden ">
@@ -25,12 +25,12 @@ const SkillCard = ({ skill }) => {
       {/* Card Body */}
       <div className="flex flex-col p-5 flex-1">
         {/* Title */}
-        <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-2">
+        <h2 className="text-lg font-semibold text-gray-100 mb-2">
           {skillName}
         </h2>
 
         {/* Description */}
-        <p className="text-gray-500 dark:text-gray-400 text-sm mb-4 line-clamp-3">
+        <p className="text-gray-400 text-sm mb-4 line-clamp-3">
           {description || "No description available."}
         </p>
 
