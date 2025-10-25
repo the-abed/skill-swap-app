@@ -7,6 +7,7 @@ import "swiper/css/pagination";
 import { Link } from "react-router";
 
 const Hero = () => {
+  // Array containing slide data for the hero section
   const slides = [
     {
       title: "Learn. Share. Grow Together.",
@@ -29,50 +30,48 @@ const Hero = () => {
   ];
 
   return (
-    <div className="py-24">
-      <div className="w-full max-w-7xl mx-auto rounded-2xl overflow-hidden shadow-lg">
-        <Swiper
-          modules={[Navigation, Pagination, Autoplay]}
-          navigation
-          pagination={{ clickable: true }}
-          autoplay={{ delay: 4000, disableOnInteraction: false }}
-          loop
-          className="w-full h-[80vh]"
-        >
-          {slides.map((slide, index) => (
-            <SwiperSlide key={index}>
-              <div
-                className="relative w-full h-full bg-center bg-cover flex items-center justify-center"
-                style={{
-                  backgroundImage: `url(${slide.image})`,
-                  backgroundPosition: "center",
-                  backgroundSize: "cover",
+    // Hero section container
+  <div className="w-full mt-24 mb-12">
+  <div className=" overflow-hidden shadow-lg">
+    <Swiper
+  modules={[Navigation, Pagination, Autoplay]}
+  navigation
+  pagination={{ clickable: true }}
+  autoplay={{ delay: 4000, disableOnInteraction: false }}
+  loop
+  className="w-full h-[40vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh]"
+>
+      {slides.map((slide, index) => (
+        <SwiperSlide key={index}>
+          <div
+            className="relative w-full h-full bg-center bg-cover flex items-center justify-center"
+            style={{ backgroundImage: `url(${slide.image})` }}
+          >
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
+            <div className="relative text-center text-white px-6 sm:px-12 max-w-3xl">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-3">
+                {slide.title}
+              </h1>
+              <p className="text-md sm:text-lg md:text-xl mb-6 opacity-90">
+                {slide.subtitle}
+              </p>
+              <button
+                className="btn btn-primary px-6"
+                onClick={() => {
+                  const section = document.getElementById("popular-skills");
+                  section?.scrollIntoView({ behavior: "smooth" });
                 }}
               >
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
-                <div className="relative text-center text-white px-6 sm:px-12 max-w-3xl">
-                  <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-3">
-                    {slide.title}
-                  </h1>
-                  <p className="text-md sm:text-lg md:text-xl mb-6 opacity-90">
-                    {slide.subtitle}
-                  </p>
-                  <button
-                    className="btn btn-primary px-6"
-                    onClick={() => {
-                      const section = document.getElementById("popular-skills");
-                      section?.scrollIntoView({ behavior: "smooth" });
-                    }}
-                  >
-                    Get Started
-                  </button>
-                </div>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
-    </div>
+                Get Started
+              </button>
+            </div>
+          </div>
+        </SwiperSlide>
+      ))}
+    </Swiper>
+  </div>
+</div>
+
   );
 };
 

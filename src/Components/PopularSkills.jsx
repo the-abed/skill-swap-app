@@ -7,11 +7,11 @@ import Loading from "./Loading";
 const PopularSkills = () => {
   const { skills, loading } = useSkills();
   const filteredSkills = skills.slice(0, 6);
-  console.log(skills);
+  // console.log(skills);
 
   return (
-    <div className="max-w-7xl w-full mx-auto">
-<div className="text-center py-10 px-4  my-5" >
+    <div id="popular-skills" className="max-w-7xl w-full mx-auto">
+      <div className="text-center py-10 px-4  my-5">
         {/* Title */}
         <h2 className="text-3xl md:text-5xl font-extrabold text-blue-600 mb-4">
           Learn, Share & Trade Skills Locally
@@ -34,14 +34,15 @@ const PopularSkills = () => {
           ))}
         </div>
       )}
-    <div className="flex justify-center">
-          <Link
-        to="/skills"
-        className="mt-8 text-center py-2 px-8 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-white rounded-md font-medium transition-colors duration-300"
-      >
-        See All
-      </Link>
-    </div>
+     <div className="flex justify-center">
+  <Link
+    to="/skills"
+    className="mt-10 inline-block bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 text-white font-semibold px-10 py-3 rounded-lg shadow-md hover:shadow-lg hover:scale-105 transition-transform duration-300"
+  >
+    Explore All Skills
+  </Link>
+</div>
+
     </div>
   );
 };

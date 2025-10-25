@@ -1,9 +1,8 @@
-
 # SkillSwap – A Local Skill Exchange Platform
 
 ## Project Theme
 
-**SkillSwap** is an interactive platform for individuals to offer, learn, and trade skills within their local area. Whether it’s guitar lessons, language exchange, coding help, or yoga training — users can browse listings, rate experiences, and connect with local skill providers.
+**SkillSwap** is an interactive platform for individuals to offer, learn, and trade skills within their local area. Whether it’s Quran learning, language exchange, coding help, or fitness training — users can browse listings, rate experiences, and connect with local skill providers.
 
 This platform aims to **foster community learning, skill-sharing, and local networking** in a seamless and user-friendly way.
 
@@ -32,6 +31,9 @@ This platform aims to **foster community learning, skill-sharing, and local netw
 * **Social Connections**
   Contact skill providers via email or social links.
 
+* **Animations & AOS Effects**
+  Smooth, modern animations with **AOS (Animate On Scroll)** and subtle transitions to enhance user experience.
+
 * **Carousel / Slider**
   Highlight top-rated providers and skills using **Swiper.js**.
 
@@ -44,8 +46,9 @@ This platform aims to **foster community learning, skill-sharing, and local netw
 * **State Management:** React Context API
 * **Authentication & Backend:** Firebase Authentication & Firestore
 * **Notifications:** react-hot-toast
-* **Icons:** react-icons (FontAwesome icons)
+* **Icons:** react-icons
 * **Carousel/Slider:** Swiper.js
+* **Animations:** AOS (Animate On Scroll)
 
 ---
 
@@ -59,7 +62,10 @@ npm install react-icons
 npm install tailwindcss postcss autoprefixer
 npm install @tailwindcss/line-clamp
 npm install swiper
+npm install aos
 ```
+
+### Package Descriptions
 
 * **react-router-dom:** Client-side routing
 * **firebase:** Authentication and database
@@ -68,6 +74,7 @@ npm install swiper
 * **tailwindcss:** Utility-first CSS framework for styling
 * **@tailwindcss/line-clamp:** Truncate long text elegantly
 * **swiper:** Carousel/slider for showcasing top-rated skills and providers
+* **aos:** Animate elements on scroll for engaging and modern UI transitions
 
 ---
 
@@ -79,34 +86,33 @@ npm install swiper
 **Skills Page**
 ![Skills Page Screenshot](./src/assets/allSkills.png)
 
-
 **Profile Page**
 ![Profile Page Screenshot](./src/assets/profile.png)
 
 **Register Page**
 ![Register Page Screenshot](./src/assets/SkillSwap_Register.png)
 
+---
 
 ## Live Demo
 
-You can try the live demo of SkillSwap here:
-**[Live Demo Link](https://skill-swap-aa1db.web.app/)**
+Try the live demo of **SkillSwap** here:
+👉 **[Live Demo Link](https://skill-swap-aa1db.web.app/)**
 
 ---
 
-
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the **MIT License**.
 
 ---
 
 ## Contact
 
-You can reach out to the developer:
+**Developer:** Mohammad Abed
+ [abedpersonal2024@gmail.com](mailto:abedpersonal2024@gmail.com)
+ [Twitter](https://x.com/AbedazimReal)
+ [GitHub](https://github.com/the-abed)
+ [LinkedIn](https://www.linkedin.com/in/mohammad-abed-477100386/)
 
-* **Email:** [abedpersonal2024@gmail.com](mailto:abedpersonal2024@gmail.com)
-* **Twitter:** [https://x.com/AbedazimReal](https://x.com/AbedazimReal)
-* **GitHub:** [https://github.com/the-abed](https://github.com/the-abed)
-* **LinkedIn:** [https://www.linkedin.com/in/mohammad-abed-477100386/](https://www.linkedin.com/in/mohammad-abed-477100386/)
 

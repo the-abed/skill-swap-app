@@ -13,6 +13,7 @@ import Contact from "../Pages/Contact";
 import PrivacyPolicy from "../Pages/PrivacyPolicy";
 import AboutUs from "../Pages/AboutUs";
 import PrivateLayout from "../Layouts/PrivateLayout";
+import ForgotPassword from "../Components/ForgotPassword";
 
 const router = createBrowserRouter([
   {
@@ -43,7 +44,10 @@ const router = createBrowserRouter([
       {
   path: "/privacy-policy",
   Component: PrivacyPolicy
-}
+},{
+        path: "/forgot-password",
+        element: <ForgotPassword></ForgotPassword>
+      }
     ],
   },
   {
@@ -58,6 +62,7 @@ const router = createBrowserRouter([
         path: "/auth/register",
         element: <Register></Register>,
       },
+      
     ],
   },
   {
@@ -76,5 +81,6 @@ const router = createBrowserRouter([
       }
     ]
   },
+  
 ]);
 export default router;

@@ -28,7 +28,7 @@ const TopRatedProviders = () => {
   }, []);
 
   return (
-    <div className="py-22 px-6 md:px-10 w-11/12 mx-auto">
+    <div className="py-28 px-6 md:px-10 w-11/12 mx-auto">
       {/* Section Title */}
       <div className="text-center mb-14" data-aos="fade-down">
         <h2 className="text-3xl md:text-5xl font-extrabold text-blue-600 mb-3">
@@ -98,7 +98,7 @@ const TopRatedProviders = () => {
               <div className="card-actions justify-center">
                 <button
                   onClick={() => setSelectedProvider(provider)}
-                  className="btn bg-gradient-to-r from-blue-600 to-purple-600 text-white w-full flex items-center justify-center gap-2 hover:scale-105 transition-transform duration-300"
+                  className="btn bg-gradient-to-r from-blue-600 to-purple-600 text-white w-full flex items-center justify-center gap-2 hover:scale-105 transition-transform duration-300 py-1 rounded-md"
                 >
                   Contact
                 </button>

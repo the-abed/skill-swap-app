@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link, NavLink } from "react-router";
+import { Link, NavLink, useNavigate } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
 import toast, { Toaster } from "react-hot-toast";
 import skillSwap2 from "../assets/SkillSwapLogo.png";
@@ -8,6 +8,7 @@ import ThemeToggle from "./ThemeToggle";
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
 
   const handleLogOut = () => {
     logOut()
@@ -63,11 +64,14 @@ const Navbar = () => {
 
             {user ? (
               <div className="flex items-center gap-3">
-                <img
+                <div className="tooltip tooltip-bottom" data-tip={user.displayName || ""}>
+                  <img
                   src={user.photoURL || "https://i.ibb.co/MBtjqXQ/no-avatar.gif"}
                   alt="User"
-                  className="w-8 h-8 rounded-full border border-blue-500"
+                  className="w-9 h-9 rounded-full border-2 border-blue-500 cursor-pointer"
+                  onClick={()=>{navigate("/my-profile")}}
                 />
+                </div>
                 <button
                   onClick={handleLogOut}
                   className="hidden sm:block px-3 py-1.5 rounded-md bg-blue-600 text-white text-sm hover:bg-blue-700 transition"
