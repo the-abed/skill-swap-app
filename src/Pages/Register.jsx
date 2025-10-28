@@ -1,7 +1,9 @@
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
-import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
+import { FaEye, FaEyeSlash,} from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
+import toast, { Toaster } from "react-hot-toast";
 
 const Register = () => {
   const { createUser, setUser, updateUser, googleLogin } =
@@ -39,7 +41,11 @@ const Register = () => {
         return updateUser({ displayName: name, photoURL: photo })
           .then(() => {
             setUser({ ...createdUser, displayName: name, photoURL: photo });
-            navigate("/");
+             toast.success(`Hey, ${result.user.displayName || "User"}!,you signed up successfully`);
+      // Delay navigation so toast is visible
+      setTimeout(() => {
+        navigate(location.state?.from || "/");
+      }, 1500);
           })
           .catch(() => setUser(createdUser));
       })
@@ -48,12 +54,13 @@ const Register = () => {
 
   const handleGoogleSignIn = () => {
     googleLogin()
-      .then((result) => navigate("/"))
+      .then(() => navigate("/"))
       .catch((err) => console.error(err.message));
   };
 
   return (
     <div className="min-h-screen flex justify-center items-center bg-neutral-50 dark:bg-neutral-900 p-6">
+      <Toaster position="top-center" reverseOrder={false} />
       <div className="w-full max-w-md bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 p-8 transition-colors duration-300 mt-18">
         <h2 className="text-3xl font-extrabold text-center text-neutral-900 dark:text-neutral-100 mb-6">
           Create an Account
@@ -129,12 +136,23 @@ const Register = () => {
             Sign Up
           </button>
 
+              {/* Divider */}
+              <div className="relative">
+                <div className="absolute inset-0 flex items-center">
+                  <div className="w-full border-t border-neutral-200 dark:border-neutral-700"></div>
+                </div>
+                <div className="relative flex justify-center text-sm">
+                  <span className="px-2 bg-white dark:bg-neutral-800 text-neutral-500 dark:text-neutral-400">
+                    or continue with
+                  </span>
+                </div>
+              </div>
           <button
             type="button"
             onClick={handleGoogleSignIn}
             className="w-full px-6 py-3 bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 rounded-lg border border-neutral-200 dark:border-neutral-700 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-all flex items-center justify-center gap-2"
           >
-            <FaGoogle className="text-pink-600" /> Continue with Google
+            <FcGoogle className="text-xl mr-1"></FcGoogle> Continue with Google
           </button>
         </form>
 

@@ -80,24 +80,26 @@ npm install aos
 
 ## Screenshots
 
-**Home Page**
-![Home Page Screenshot](./src/assets/home.png)
+### Login Page
 
-**Skills Page**
-![Skills Page Screenshot](./src/assets/allSkills.png)
+Light Mode: ![Login Light](./src//assets/home_light.png)
+Dark Mode: ![Login Dark](./src/assets/home_night.png)
 
-**Profile Page**
-![Profile Page Screenshot](./src/assets/profile.png)
+### Register Page
 
-**Register Page**
-![Register Page Screenshot](./src/assets/SkillSwap_Register.png)
+Dark Mode: ![Register Dark](./src/assets/register_night.png)
+
+### Profile Page
+
+Dark Mode: ![Profile Dark](./src/assets/profile.png)
+
 
 ---
 
 ## Live Demo
 
 Try the live demo of **SkillSwap** here:
-👉 **[Live Demo Link](https://skill-swap-aa1db.web.app/)**
+👉 **[Live Demo Link](https://skill-swap-web.netlify.app/)**
 
 ---
 

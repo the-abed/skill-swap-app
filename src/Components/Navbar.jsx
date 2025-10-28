@@ -28,10 +28,10 @@ const Navbar = () => {
           <NavLink
             to={link.path}
             className={({ isActive }) =>
-              `px-3 py-2 text-sm font-medium transition ${
+              `px-3 py-2 text-sm font-medium transition text-center ${
                 isActive
-                  ? "text-blue-600 dark:text-blue-400"
-                  : "text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
+                  ? "bg-transparent text-blue-600 dark:text-blue-400 hover:scale-105 "
+                  : "text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 border-none hover:scale-105"
               }`
             }
           >
@@ -61,16 +61,23 @@ const Navbar = () => {
 
           {/* Right Side */}
           <div className="flex items-center gap-4">
-
             {user ? (
               <div className="flex items-center gap-3">
-                <div className="tooltip tooltip-bottom" data-tip={user.displayName || ""}>
+                <div
+                  className="tooltip tooltip-bottom"
+                  data-tip={user.displayName || ""}
+                >
                   <img
-                  src={user.photoURL || "https://i.ibb.co/MBtjqXQ/no-avatar.gif"}
-                  alt="User"
-                  className="w-9 h-9 rounded-full border-2 border-blue-500 cursor-pointer"
-                  onClick={()=>{navigate("/my-profile")}}
-                />
+                    src={
+                      user.photoURL ||
+                      "https://i.ibb.co.com/TDYt0xK7/296fe121-5dfa-43f4-98b5-db50019738a7.jpg"
+                    }
+                    alt="User"
+                    className="w-9 h-9 rounded-full border-2 border-blue-500 cursor-pointer"
+                    onClick={() => {
+                      navigate("/my-profile");
+                    }}
+                  />
                 </div>
                 <button
                   onClick={handleLogOut}
@@ -99,7 +106,7 @@ const Navbar = () => {
             {/* Mobile Toggle */}
             <button
               onClick={() => setOpen(!open)}
-              className="md:hidden p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+              className="md:hidden p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition "
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -130,13 +137,32 @@ const Navbar = () => {
 
         {/* Mobile Dropdown */}
         {open && (
-          <ul className="md:hidden flex flex-col space-y-2 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 px-4 py-3 mt-2 rounded-lg shadow-md transition-all">
-            {navLinks}
+          <ul
+            className=" w-6/12
+    md:hidden flex flex-col space-y-2
+    bg-white dark:bg-gray-900 
+    border-t border-gray-200 dark:border-gray-800
+    px-4 py-3 mt-2 rounded-lg shadow-lg transition-all
+     max-w-xs 
+    ml-auto                     
+  "
+          >
+            <div className="w-full text-center  space-y-2 ">{navLinks}</div>
+
             {user ? (
               <li>
                 <button
                   onClick={handleLogOut}
-                  className="w-full text-left px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+                  className="
+            btn w-full border-none
+              block px-3 py-2 rounded-md
+              bg-green-500 text-white
+              dark:bg-green-600 dark:text-white
+              shadow-sm hover:shadow-lg
+              hover:scale-105
+              hover:bg-green-600 dark:hover:bg-green-700
+              transition transform duration-200
+          "
                 >
                   Log Out
                 </button>
@@ -146,7 +172,15 @@ const Navbar = () => {
                 <li>
                   <Link
                     to="/auth/login"
-                    className="block px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800"
+                    className="btn border-none
+              block px-3 py-2 rounded-md
+              bg-blue-500 text-white
+              dark:bg-blue-600 dark:text-white
+              shadow-sm hover:shadow-lg
+              hover:scale-105
+              hover:bg-blue-600 dark:hover:bg-blue-700
+              transition transform duration-200
+            "
                   >
                     Login
                   </Link>
@@ -154,7 +188,15 @@ const Navbar = () => {
                 <li>
                   <Link
                     to="/auth/register"
-                    className="block px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800"
+                    className="btn
+              block px-3 py-2 rounded-md
+              bg-green-500 text-white
+              dark:bg-green-600 dark:text-white
+              shadow-sm hover:shadow-lg
+              hover:scale-105
+              hover:bg-green-600 dark:hover:bg-green-700
+              transition transform duration-200 border-none
+            "
                   >
                     Sign Up
                   </Link>

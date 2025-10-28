@@ -27,7 +27,7 @@ const CommunityStats = () => {
 
   return (
     <section
-      className="relative w-full py-20 bg-fixed bg-center bg-cover text-white mb-16"
+      className="relative w-full py-20 bg-fixed bg-center bg-cover text-white"
       style={{
         backgroundImage:
           "url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1470&q=80')",

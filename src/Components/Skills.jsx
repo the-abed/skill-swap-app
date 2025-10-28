@@ -1,5 +1,6 @@
 import { use } from "react";
 import SkillCard from "./SkillCard";
+import { Link } from "react-router";
 
 const skillPromise = fetch("/skillsData.json").then((res) => res.json());
 // console.log('skill', skillPromise)
@@ -26,7 +27,31 @@ const Skills = () => {
         {data.map((skill) => (
           <SkillCard key={data.skillId} skill={skill}></SkillCard>
         ))}
+       
       </div>
+       <div className="flex justify-center">
+  <Link
+    to="/"
+    className="
+      mt-10 inline-block font-semibold px-10 py-3 rounded-lg
+      text-white shadow-md transition-all duration-500 ease-in-out transform
+
+      /* Light mode gradient (vibrant) */
+      bg-gradient-to-r from-purple-600 via-pink-500 to-red-500
+      hover:from-purple-700 hover:via-pink-600 hover:to-red-600
+
+      /* Dark mode gradient (darker, elegant) */
+      dark:from-gray-800 dark:via-gray-700 dark:to-gray-600
+      dark:hover:from-gray-700 dark:hover:via-gray-600 dark:hover:to-gray-500
+
+      /* Glow and motion */
+      hover:shadow-lg hover:scale-105
+      hover:shadow-purple-400/30 dark:hover:shadow-gray-500/30
+    "
+  >
+    Back To Home
+  </Link>
+</div>
     </div>
   );
 };

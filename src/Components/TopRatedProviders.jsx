@@ -8,18 +8,15 @@ const TopRatedProviders = () => {
   const [selectedProvider, setSelectedProvider] = useState(null);
 
   useEffect(() => {
-    // Fetch providers
     fetch("/topRatedProvider.json")
       .then((res) => res.json())
       .then((data) => {
         setProviders(data);
-        // Refresh AOS after data loads
         AOS.refresh();
       });
   }, []);
 
   useEffect(() => {
-    // Initialize AOS once
     AOS.init({
       duration: 1000,
       easing: "ease-in-out",
@@ -28,14 +25,15 @@ const TopRatedProviders = () => {
   }, []);
 
   return (
-    <div className="py-28 px-6 md:px-10 w-11/12 mx-auto">
+    <div className="py-28 px-6 md:px-10 w-11/12 mx-auto transition-colors duration-500 ">
       {/* Section Title */}
       <div className="text-center mb-14" data-aos="fade-down">
-        <h2 className="text-3xl md:text-5xl font-extrabold text-blue-600 mb-3">
+        <h2 className="text-3xl md:text-5xl font-extrabold text-blue-600 dark:text-blue-400 mb-3 drop-shadow-sm transition-colors duration-300">
           🌟 Top Rated Providers
         </h2>
-        <p className="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">
-          Meet our most trusted and highly rated skill providers — professionals who consistently deliver quality learning experiences.
+        <p className="text-gray-600 dark:text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed transition-colors duration-300">
+          Meet our most trusted and highly rated skill providers — professionals
+          who consistently deliver quality learning experiences.
         </p>
       </div>
 
@@ -48,7 +46,17 @@ const TopRatedProviders = () => {
             data-aos-delay={index * 100}
             data-aos-once="true"
           >
-            <div className="relative group bg-white/90 backdrop-blur-md shadow-lg hover:shadow-2xl rounded-2xl p-6 transition-all duration-500 ease-in-out border border-gray-100 hover:-translate-y-2">
+            <div
+              className="
+              relative group 
+              bg-white/90 dark:bg-gray-800/90 
+              backdrop-blur-md border border-gray-100 dark:border-gray-700
+              shadow-lg hover:shadow-blue-500/20 dark:hover:shadow-blue-400/20
+              rounded-2xl p-6 
+              transition-all duration-500 ease-in-out 
+              hover:-translate-y-2 hover:scale-[1.02]
+              "
+            >
               {/* Top Badge */}
               {provider.rating >= 4.8 && (
                 <span className="absolute top-3 right-3 bg-gradient-to-r from-yellow-400 to-orange-400 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md">
@@ -61,15 +69,15 @@ const TopRatedProviders = () => {
                 <img
                   src={provider.photo}
                   alt={provider.name}
-                  className="w-24 h-24 rounded-full border-4 border-blue-500 shadow-md object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="w-24 h-24 rounded-full border-4 border-blue-500 dark:border-blue-400 shadow-md object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
 
               {/* Name & Profession */}
-              <h3 className="text-center text-xl font-bold text-gray-800 mb-1">
+              <h3 className="text-center text-xl font-bold text-gray-800 dark:text-gray-100 mb-1 transition-colors duration-300">
                 {provider.name}
               </h3>
-              <p className="text-center text-sm text-gray-500 mb-4 flex justify-center items-center gap-1">
+              <p className="text-center text-sm text-gray-500 dark:text-gray-400 mb-4 flex justify-center items-center gap-1 transition-colors duration-300">
                 <FaBriefcase className="text-secondary" />{" "}
                 {provider.profession || "Skill Provider"}
               </p>
@@ -77,7 +85,7 @@ const TopRatedProviders = () => {
               {/* Rating */}
               <div className="flex justify-center items-center mb-4">
                 <FaStar className="text-yellow-400 text-lg" />
-                <span className="ml-1 font-semibold text-gray-700">
+                <span className="ml-1 font-semibold text-gray-700 dark:text-gray-300">
                   {provider.rating}
                 </span>
               </div>
@@ -87,7 +95,7 @@ const TopRatedProviders = () => {
                 {provider.skillsOffered.map((skill, idx) => (
                   <span
                     key={idx}
-                    className="bg-blue-100 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full shadow-sm hover:bg-blue-200 transition-colors duration-200"
+                    className="bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-xs font-semibold px-3 py-1 rounded-full shadow-sm hover:bg-blue-200 dark:hover:bg-blue-800 transition-all duration-200"
                   >
                     {skill}
                   </span>
@@ -98,7 +106,7 @@ const TopRatedProviders = () => {
               <div className="card-actions justify-center">
                 <button
                   onClick={() => setSelectedProvider(provider)}
-                  className="btn bg-gradient-to-r from-blue-600 to-purple-600 text-white w-full flex items-center justify-center gap-2 hover:scale-105 transition-transform duration-300 py-1 rounded-md"
+                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white w-full flex items-center justify-center gap-2 hover:scale-105 transition-transform duration-300 py-2 rounded-lg shadow-md"
                 >
                   Contact
                 </button>
@@ -110,19 +118,19 @@ const TopRatedProviders = () => {
 
       {/* Contact Modal */}
       {selectedProvider && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-xl shadow-xl w-full max-w-md p-6 relative">
-            <h3 className="text-2xl font-bold mb-4">
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 transition-opacity">
+          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-2xl w-full max-w-md p-6 relative transition-colors duration-300 border border-gray-100 dark:border-gray-700">
+            <h3 className="text-2xl font-bold mb-4 text-gray-800 dark:text-gray-100">
               Contact {selectedProvider.name}
             </h3>
             <textarea
               placeholder="Write your message..."
-              className="w-full p-3 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 transition-all duration-300"
             />
             <div className="flex justify-end gap-3">
               <button
                 onClick={() => setSelectedProvider(null)}
-                className="px-4 py-2 rounded-lg border border-gray-400 hover:bg-gray-100 transition"
+                className="px-4 py-2 rounded-lg border border-gray-400 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-800 dark:text-gray-200 transition-colors duration-300"
               >
                 Cancel
               </button>
@@ -131,7 +139,7 @@ const TopRatedProviders = () => {
                   alert("Message sent!");
                   setSelectedProvider(null);
                 }}
-                className="px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition"
+                className="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white transition-all duration-300 shadow-md hover:shadow-lg"
               >
                 Send
               </button>

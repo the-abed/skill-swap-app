@@ -34,7 +34,7 @@ const HowItWorks = () => {
   ];
 
   return (
-    <section className="mb-26 py-20 px-6 0 bg-gray-900">
+    <section className="mb-26 py-20 px-6 0 bg-gray-900 mt-16">
       {/* Section Header */}
       <div className="text-center mb-16">
         <h2 className="text-3xl md:text-5xl font-extrabold text-blue-600 dark:text-blue-400 mb-4">

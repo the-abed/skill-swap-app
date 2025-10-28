@@ -34,14 +34,31 @@ const PopularSkills = () => {
           ))}
         </div>
       )}
-     <div className="flex justify-center">
+    <div className="flex justify-center">
   <Link
     to="/skills"
-    className="mt-10 inline-block bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 text-white font-semibold px-10 py-3 rounded-lg shadow-md hover:shadow-lg hover:scale-105 transition-transform duration-300"
+    className="
+      mt-10 inline-block font-semibold px-10 py-3 rounded-lg
+      text-white shadow-md transition-all duration-500 ease-in-out transform
+
+      /* Light mode gradient (vibrant) */
+      bg-gradient-to-r from-purple-600 via-pink-500 to-red-500
+      hover:from-purple-700 hover:via-pink-600 hover:to-red-600
+
+      /* Dark mode gradient (darker, elegant) */
+      dark:from-gray-800 dark:via-gray-700 dark:to-gray-600
+      dark:hover:from-gray-700 dark:hover:via-gray-600 dark:hover:to-gray-500
+
+      /* Glow and motion */
+      hover:shadow-lg hover:scale-105
+      hover:shadow-purple-400/30 dark:hover:shadow-gray-500/30
+    "
   >
     Explore All Skills
   </Link>
 </div>
+
+
 
     </div>
   );
@@ -49,13 +66,4 @@ const PopularSkills = () => {
 
 export default PopularSkills;
 
-/* {
-            loading ? (<LoaderSpinner></LoaderSpinner>) : (
-                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
-            
-             {
-                filterProducts.map(product => <ProductCard key={product.id} product={product}></ProductCard>)
-            }
-           </div>
-            )
-          } */
+

@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Eye, EyeOff } from "lucide-react";
 import toast, { Toaster } from "react-hot-toast";
+import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
   const { signIn, googleLogin } = useContext(AuthContext);
@@ -27,7 +28,7 @@ const handleLogIn = (e) => {
       // Delay navigation so toast is visible
       setTimeout(() => {
         navigate(location.state?.from || "/");
-      }, 1500);
+      }, 1000);
     })
     .catch((err) => setError("Invalid email or password."));
 };
@@ -147,7 +148,7 @@ const handleGoogleSignIn = () => {
                 onClick={handleGoogleSignIn}
                 className="w-full px-6 py-3 bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 text-sm font-medium rounded-lg border border-neutral-200 dark:border-neutral-700 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-all flex items-center justify-center gap-2"
               >
-                <svg className="w-5 h-5" viewBox="0 0 24 24">
+                
                   <path
                     fill="currentColor"
                     d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
@@ -164,7 +165,7 @@ const handleGoogleSignIn = () => {
                     fill="currentColor"
                     d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
                   />
-                </svg>
+                <FcGoogle className="text-xl mr-1"></FcGoogle>
                 Continue with Google
               </button>
             </form>

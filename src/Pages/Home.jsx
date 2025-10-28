@@ -16,14 +16,14 @@ const Home = () => {
 <div >
   <PopularSkills></PopularSkills>
 </div>
-
+<div data-aos="fade-right" data-aos-duration="1000">
+  <HowItWorks />
+</div>
 <div>
   <TopRatedProviders />
 </div>
 
-<div data-aos="fade-right" data-aos-duration="1000">
-  <HowItWorks />
-</div>
+
 
 <div data-aos="fade-up" data-aos-duration="1000">
   <WhyChooseUs />
