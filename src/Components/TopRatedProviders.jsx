@@ -49,9 +49,7 @@ const TopRatedProviders = () => {
             <div
               className="
               relative group 
-              bg-white/90 dark:bg-gray-800/90 
-              backdrop-blur-md border border-gray-100 dark:border-gray-700
-              shadow-lg hover:shadow-blue-500/20 dark:hover:shadow-blue-400/20
+              secondary-bg
               rounded-2xl p-6 
               transition-all duration-500 ease-in-out 
               hover:-translate-y-2 hover:scale-[1.02]

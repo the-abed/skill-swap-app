@@ -6,8 +6,7 @@ const SkillCard = ({ skill }) => {
   const { skillId, image, skillName, description, rating, price, level, category } = skill;
 
   return (
-   <div className="flex flex-col  bg-white dark:bg-gray-900 
-        border-gray-200 dark:border-gray-700
+   <div className="flex flex-col  secondary-bg 
         shadow-md hover:shadow-blue-500/20 dark:hover:shadow-blue-400/20 rounded-xl overflow-hidden hover:shadow-md transition-shadow duration-300  "
          data-aos="fade-up" data-aos-duration="1000">
 
@@ -43,7 +42,7 @@ const SkillCard = ({ skill }) => {
         {/* Title */}
         <h2
           className="
-            text-lg font-semibold mb-2 
+            text-md md:text-lg  font-semibold mb-2 
             text-gray-800 dark:text-gray-100
             transition-colors duration-300
           "

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router";
 import { Star, DollarSign, Users, Tag } from "lucide-react";
+import toast, { Toaster } from "react-hot-toast";
 
 const SkillDetails = () => {
   const data = useLoaderData();
@@ -18,16 +19,16 @@ const SkillDetails = () => {
   const handleBookNow = (e) => {
     e.preventDefault();
     if (!formData.email || !formData.password) {
-      alert("Please fill in all fields!");
+      toast.error("Please enter email and password.");
       return;
     }
-    alert(`Booking confirmed for ${skill.skillName}!`);
+    toast.success(`Booking confirmed for ${skill.skillName}!`);
     setFormData({ email: "", password: "" });
   };
 
   return (
     <div className="min-h-screen bg-neutral-50 dark:bg-neutral-950 transition-colors duration-300">
-      
+       <Toaster position="top-center" reverseOrder={false} />
       {/* Main Content */}
       <div className="max-w-6xl mx-auto px-4 py-16 md:py-24">
         

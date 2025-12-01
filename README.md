@@ -82,8 +82,8 @@ npm install aos
 
 ### Login Page
 
-Light Mode: ![Login Light](./src//assets/home_light.png)
-Dark Mode: ![Login Dark](./src/assets/home_night.png)
+Light Mode: ![Login Light](./src/assets/skillSwap_homePage.png)
+Dark Mode: ![Login Dark](./src/assets/skillSwap_dark.png)
 
 ### Register Page
 

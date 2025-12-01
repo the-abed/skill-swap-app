@@ -19,3 +19,11 @@ body {
   font-family: "Poppins", sans-serif;
   min-height: 100vh;
 }
+
+
+.secondary-bg{
+    @apply bg-white/90 dark:bg-gray-800/90 
+              backdrop-blur-md border border-gray-100 dark:border-gray-700
+               hover:shadow-blue-500/20 dark:hover:shadow-blue-400/20 shadow-xl
+}
+

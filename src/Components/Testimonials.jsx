@@ -63,8 +63,8 @@ export default function Testimonials() {
   ];
 
   return (
-    <section className="py-16  transition-colors duration-300">
-      <div className="max-w-7xl mx-auto text-center px-4">
+    <section className="py-18  transition-colors duration-300">
+      <div className=" mx-auto text-center px-4">
         <h2 className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-10">
           What Our Users Say
         </h2>
@@ -90,9 +90,7 @@ export default function Testimonials() {
           {testimonials.map((t, index) => (
             <SwiperSlide key={index}>
               <div
-                className="bg-white/90 dark:bg-gray-800/90 
-              backdrop-blur-md border border-gray-100 dark:border-gray-700
-              shadow-lg hover:shadow-blue-500/20 dark:hover:shadow-blue-400/20 shadow-xl p-8 rounded-2xl max-w-lg mx-auto"
+                className="secondary-bg p-8 rounded-2xl max-w-lg mx-auto"
               >
                 <div className="flex flex-col items-center">
                   <img

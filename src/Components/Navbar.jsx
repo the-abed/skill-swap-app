@@ -21,7 +21,7 @@ const Navbar = () => {
       {[
         { name: "Home", path: "/" },
         { name: "Skills", path: "/skills" },
-        { name: "My Profile", path: "/my-profile" },
+
         { name: "About", path: "/about-us" },
       ].map((link) => (
         <li key={link.name}>
@@ -39,6 +39,22 @@ const Navbar = () => {
           </NavLink>
         </li>
       ))}
+      {user && (
+        <li>
+          <NavLink
+            to="/my-profile"
+            className={({ isActive }) =>
+              `px-3 py-2 text-sm font-medium transition text-center ${
+                isActive
+                  ? "bg-transparent text-blue-600 dark:text-blue-400 hover:scale-105 "
+                  : "text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 border-none hover:scale-105"
+              }`
+            }
+          >
+            My Profile
+          </NavLink>
+        </li>
+      )}
     </>
   );
 
