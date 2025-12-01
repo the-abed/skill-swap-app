@@ -8,6 +8,11 @@ This platform aims to **foster community learning, skill-sharing, and local netw
 
 ---
 
+## Live Demo
+
+Try the live demo of **SkillSwap** here:
+👉 **[Live Demo Link](https://skill-swap-web.netlify.app/)**
+
 ## Features
 
 * **User Authentication**
