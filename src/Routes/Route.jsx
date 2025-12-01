@@ -14,11 +14,13 @@ import PrivacyPolicy from "../Pages/PrivacyPolicy";
 import AboutUs from "../Pages/AboutUs";
 import PrivateLayout from "../Layouts/PrivateLayout";
 import ForgotPassword from "../Components/ForgotPassword";
+import ErrorPage from "../Pages/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout></RootLayout>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "",
@@ -71,11 +73,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "",
-        element: (
-      <PrivateRoute>
-        <SkillDetails></SkillDetails>
-      </PrivateRoute>
-    ),
+       Component: SkillDetails,
     loader: () => fetch("/skillsData.json").then((res) => res.json()),
     hydrateFallbackElement: <Loading></Loading>,
       }

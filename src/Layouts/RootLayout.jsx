@@ -14,8 +14,7 @@ const RootLayout = () => {
       {/* Main content */}
       <main className="flex-1
         bg-neutral-50 dark:bg-neutral-900
-        transition-colors duration-500
-      ">
+        transition-colors duration-500">
         <Outlet />
       </main>
 

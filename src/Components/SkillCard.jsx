@@ -8,7 +8,8 @@ const SkillCard = ({ skill }) => {
   return (
    <div className="flex flex-col  bg-white dark:bg-gray-900 
         border-gray-200 dark:border-gray-700
-        shadow-md hover:shadow-blue-500/20 dark:hover:shadow-blue-400/20 rounded-xl overflow-hidden hover:shadow-md transition-shadow duration-300  " data-aos="fade-up" data-aos-duration="1000">
+        shadow-md hover:shadow-blue-500/20 dark:hover:shadow-blue-400/20 rounded-xl overflow-hidden hover:shadow-md transition-shadow duration-300  "
+         data-aos="fade-up" data-aos-duration="1000">
 
       {/* Image Section */}
       <div className="relative h-52 w-full overflow-hidden">
@@ -51,7 +52,7 @@ const SkillCard = ({ skill }) => {
         </h2>
 
         {/* Description */}
-        <p
+        {/* <p
           className="
             text-gray-600 dark:text-gray-400 
             text-sm mb-4 line-clamp-3
@@ -59,7 +60,7 @@ const SkillCard = ({ skill }) => {
           "
         >
           {description || "No description available."}
-        </p>
+        </p> */}
 
         {/* Info Badges */}
         <div className="flex flex-wrap items-center gap-2 mb-4 text-sm">

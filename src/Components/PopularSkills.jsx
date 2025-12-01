@@ -6,7 +6,7 @@ import Loading from "./Loading";
 
 const PopularSkills = () => {
   const { skills, loading } = useSkills();
-  const filteredSkills = skills.slice(0, 6);
+  const filteredSkills = skills.slice(0, 8);
   // console.log(skills);
 
   return (
@@ -27,7 +27,7 @@ const PopularSkills = () => {
       {loading ? (
         <Loading></Loading>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 px-6 md:px-0 lg:px-0">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-6 md:px-0 lg:px-0">
           {" "}
           {filteredSkills.map((skill) => (
             <SkillCard key={skill.skillId} skill={skill}></SkillCard>
