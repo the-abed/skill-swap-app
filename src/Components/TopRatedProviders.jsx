@@ -25,7 +25,7 @@ const TopRatedProviders = () => {
   }, []);
 
   return (
-    <div className="mb-16 px-6 md:px-10 w-11/12 mx-auto transition-colors duration-500 ">
+    <div className="mb-16 px-6 md:px-0 w-10/12 mx-auto transition-colors duration-500 ">
       {/* Section Title */}
       <div className="text-center mb-14" data-aos="fade-down">
         <h2 className="text-3xl md:text-5xl font-extrabold text-blue-600 dark:text-blue-400 mb-3 drop-shadow-sm transition-colors duration-300">

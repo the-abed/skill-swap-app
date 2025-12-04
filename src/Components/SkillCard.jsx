@@ -3,12 +3,14 @@ import { FaStar } from "react-icons/fa";
 import { Link } from "react-router";
 
 const SkillCard = ({ skill }) => {
-  const { skillId, image, skillName, description, rating, price, level, category } = skill;
+  const { skillId, image, skillName, rating, price, level, category } = skill;
+
+
 
   return (
    <div className="flex flex-col  secondary-bg 
         shadow-md hover:shadow-blue-500/20 dark:hover:shadow-blue-400/20 rounded-xl overflow-hidden hover:shadow-md transition-shadow duration-300  "
-         data-aos="fade-up" data-aos-duration="1000">
+         >
 
       {/* Image Section */}
       <div className="relative h-52 w-full overflow-hidden">

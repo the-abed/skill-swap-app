@@ -21,7 +21,7 @@ const Navbar = () => {
       {[
         { name: "Home", path: "/" },
         { name: "Skills", path: "/skills" },
-
+        { name: "Contact", path: "/contact" },
         { name: "About", path: "/about-us" },
       ].map((link) => (
         <li key={link.name}>
@@ -61,7 +61,7 @@ const Navbar = () => {
   return (
     <nav className="backdrop-blur-md bg-white/70 dark:bg-gray-900/60 border-b border-gray-200 dark:border-gray-800 fixed top-0 left-0 w-full z-50">
       <Toaster position="top-center" reverseOrder={false} />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-0">
         {/* Navbar Container */}
         <div className="flex justify-between items-center h-16">
           {/* Logo */}

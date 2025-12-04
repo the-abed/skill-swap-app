@@ -157,7 +157,6 @@
     "image": "https://images.pexels.com/photos/415805/pexels-photo-415805.jpeg?auto=compress&cs=tinysrgb&w=800",
     "category": "Sports"
   },
-
   {
     "skillId": 14,
     "skillName": "Sketching & Drawing Fundamentals",
@@ -193,5 +192,78 @@
     "description": "Guided meditation sessions to reduce stress, improve focus, and promote mental wellness.",
     "image": "https://images.pexels.com/photos/3822622/pexels-photo-3822622.jpeg?auto=compress&cs=tinysrgb&w=800",
     "category": "Health & Fitness"
+  },
+  {
+    "skillId": 17,
+    "skillName": "Introduction to Digital Photography",
+    "providerName": "Liam Baker",
+    "providerEmail": "liam@skillswap.com",
+    "price": 30,
+    "rating": 4.7,
+    "slotsAvailable": 4,
+    "description": "Master camera settings, composition, and basic photo editing techniques using popular software.",
+    "image": "https://images.pexels.com/photos/1766604/pexels-photo-1766604.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "category": "Art & Design"
+  },
+  {
+    "skillId": 18,
+    "skillName": "Acoustic Guitar for Beginners",
+    "providerName": "Olivia Rodriguez",
+    "providerEmail": "olivia@skillswap.com",
+    "price": 22,
+    "rating": 4.5,
+    "slotsAvailable": 2,
+    "description": "Learn basic chords, strumming patterns, and your first few songs on the acoustic guitar.",
+    "image": "https://images.pexels.com/photos/1010519/pexels-photo-1010519.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "category": "Music"
+  },
+  {
+    "skillId": 19,
+    "skillName": "Advanced Excel Formulas & Data Analysis",
+    "providerName": "Jacob Lee",
+    "providerEmail": "jacob@skillswap.com",
+    "price": 35,
+    "rating": 5.0,
+    "slotsAvailable": 1,
+    "description": "Dive deep into complex functions like VLOOKUP, INDEX/MATCH, and pivot tables for data analysis.",
+    "image": "https://images.pexels.com/photos/3861972/pexels-photo-3861972.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "category": "Business & Finance"
+  },
+  {
+    "skillId": 20,
+    "skillName": "DIY Home Repair Basics",
+    "providerName": "Ava Chen",
+    "providerEmail": "ava@skillswap.com",
+    "price": 15,
+    "rating": 4.3,
+    "slotsAvailable": 8,
+    "description": "Essential skills for minor home repairs, including fixing leaks, patching drywall, and basic electrical safety.",
+    "image": "https://i.ibb.co.com/chCymfT8/jasmin-schreiber-JE4i-HJE-kn-I-unsplash.jpg?auto=compress&cs=tinysrgb&w=800",
+    "category": "Home & Lifestyle"
+  },
+  {
+    "skillId": 21,
+    "skillName": "Effective Public Speaking",
+    "providerName": "Ethan Harris",
+    "providerEmail": "ethan@skillswap.com",
+    "price": 28,
+    "rating": 4.9,
+    "slotsAvailable": 3,
+    "description": "Techniques for overcoming stage fright, structuring compelling speeches, and engaging your audience.",
+    "image": "https://images.pexels.com/photos/1181285/pexels-photo-1181285.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "category": "Communication"
+  },
+  {
+    "skillId": 22,
+    "skillName": "Baking Sourdough Bread",
+    "providerName": "Sophia Martinez",
+    "providerEmail": "sophia@skillswap.com",
+    "price": 19,
+    "rating": 4.7,
+    "slotsAvailable": 5,
+    "description": "A step-by-step guide to maintaining a starter and baking delicious, crusty sourdough loaves.",
+    "image": "https://i.ibb.co.com/RkB0TYdy/llio-angharad-A5-Muem2-Bs-FU-unsplash.jpg?auto=compress&cs=tinysrgb&w=800",
+    "category": "Cooking & Culinary"
   }
+
 ]
